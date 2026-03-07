@@ -1,54 +1,100 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getSubcategoriesByCategory } from "@/data/portfolioData";
-import SubcategoryCard from "@/components/SubcategoryCard";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { portfolioCategories } from "@/data/portfolioCategories";
 
 const CategoryPortfolio = () => {
-  const { category } = useParams<{ category: string }>();
+  const { category } = useParams();
   const navigate = useNavigate();
 
-  const decodedCategory = decodeURIComponent(category || "");
-  const subs = getSubcategoriesByCategory(decodedCategory);
+  const decodedCategory = category ? decodeURIComponent(category) : "";
+
+  const categories =
+    portfolioCategories[
+      decodedCategory as keyof typeof portfolioCategories
+    ] || [];
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen bg-background">
       <Navbar />
 
-      <div className="bg-gradient-hero pt-[clamp(5.5rem,14vw,7rem)] pb-[clamp(2.5rem,8vw,4rem)]">
-        <div className="container mx-auto px-4 sm:px-6 md:px-8">
+      {/* Header */}
+      <div className="bg-gradient-hero py-20 pt-28">
+        <div className="container mx-auto px-4 md:px-8">
+
           <button
-            onClick={() => navigate("/")}
-            className="inline-flex items-center gap-2 text-brand-dark/70 hover:text-brand-dark mb-6 transition-colors font-medium text-sm sm:text-base"
+            onClick={() => navigate("/portfolio")}
+            className="inline-flex items-center gap-2 text-brand-dark/70 hover:text-brand-dark mb-6 transition-colors font-medium"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Home
+            Back to Portfolio
           </button>
-          <h1 className="text-[clamp(2.1rem,8vw,4.5rem)] font-bold text-brand-dark">
+
+          <h1 className="text-4xl md:text-6xl font-bold text-brand-dark">
             {decodedCategory}
           </h1>
-          <p className="mt-4 text-brand-dark/75 max-w-xl text-[clamp(1rem,2.8vw,1.125rem)]">
-            Explore our complete collection of {decodedCategory.toLowerCase()} work — {subs.length} specialized subcategories.
+
+          <p className="mt-4 text-brand-dark/70 max-w-xl text-lg">
+            Explore our {decodedCategory.toLowerCase()} categories and creative work.
           </p>
+
         </div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 py-[clamp(2rem,6vw,3rem)]">
-        {subs.length === 0 ? (
-          <p className="text-center text-muted-foreground text-base sm:text-lg py-16 sm:py-20">
-            No subcategories found. Check back soon!
+      {/* Subcategory Grid */}
+      <div className="container mx-auto px-4 md:px-8 py-16">
+
+        {categories.length === 0 ? (
+          <p className="text-center text-muted-foreground">
+            No categories found.
           </p>
         ) : (
-          <motion.div layout className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
-            <AnimatePresence mode="popLayout">
-              {subs.map((sub, i) => (
-                <SubcategoryCard key={sub.id} item={sub} index={i} />
-              ))}
-            </AnimatePresence>
+
+          <motion.div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            {categories.map((sub, i) => (
+
+              <motion.div
+                key={sub.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.05 }}
+                className="group cursor-pointer"
+                onClick={() =>
+                  navigate(
+                    `/portfolio/${encodeURIComponent(decodedCategory)}/${encodeURIComponent(sub.title)}`
+                  )
+                }
+              >
+
+                <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
+
+                  <img
+                    src={sub.image}
+                    alt={sub.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"/>
+
+                  <div className="absolute bottom-0 p-6">
+                    <h3 className="text-white text-xl font-bold">
+                      {sub.title}
+                    </h3>
+                  </div>
+
+                </div>
+
+              </motion.div>
+
+            ))}
+
           </motion.div>
+
         )}
+
       </div>
 
       <Footer />

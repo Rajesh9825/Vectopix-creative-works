@@ -1,84 +1,276 @@
-import brandIdentity from "@/assets/portfolio/brand-identity.jpg";
-import logoAnimation from "@/assets/portfolio/logo-animation.jpg";
-import corporateVideo from "@/assets/portfolio/corporate-video.jpg";
-import packagingDesign from "@/assets/portfolio/packaging-design.jpg";
-import explainerVideo from "@/assets/portfolio/explainer-video.jpg";
-import socialCampaign from "@/assets/portfolio/social-campaign.jpg";
+export const portfolioStructure = {
 
-export interface Subcategory {
-  id: string;
-  name: string;
-  category: string;
-  description: string;
-  icon: string; // emoji
-  workCount: number;
-}
+  "Graphic Design": {
 
-export interface PortfolioWork {
-  id: string;
-  title: string;
-  category: string;
-  subcategory: string;
-  image: string;
-}
+    "Branding and Identity": {
+      filters: ["Logo", "Brand Identity", "Business Card", "Brand Stationery"],
+      works: [
 
-export const categories = ["All", "Graphic Design", "Motion Graphics", "Video Editing"];
+        {
+          id: "logo1",
+          type: "image",
+          filter: "Logo",
+          src: "https://images.unsplash.com/photo-1611224923853-80b023f02d71"
+        },
 
-export const subcategories: Subcategory[] = [
-  // Graphic Design
-  { id: "brochure-design", name: "Brochure Design", category: "Graphic Design", description: "Multi-page layouts that tell your brand story", icon: "📖", workCount: 8 },
-  { id: "flyer-design", name: "Flyer Design", category: "Graphic Design", description: "Eye-catching single-page promotional materials", icon: "📄", workCount: 12 },
-  { id: "poster-design", name: "Poster Design", category: "Graphic Design", description: "Bold visuals for events, campaigns & ads", icon: "🖼️", workCount: 15 },
-  { id: "brand-identity", name: "Brand Identity Design", category: "Graphic Design", description: "Complete visual identity systems for brands", icon: "🎨", workCount: 6 },
-  { id: "business-card", name: "Business Card Design", category: "Graphic Design", description: "Professional cards that leave lasting impressions", icon: "💳", workCount: 20 },
-  { id: "banner-design", name: "Banner Design", category: "Graphic Design", description: "Digital & print banners for all platforms", icon: "🏷️", workCount: 18 },
-  { id: "social-media-post", name: "Social Media Post Design", category: "Graphic Design", description: "Scroll-stopping social content designs", icon: "📱", workCount: 30 },
-  { id: "social-media-ads", name: "Social Media Ad Creatives", category: "Graphic Design", description: "High-converting ad designs for campaigns", icon: "📣", workCount: 22 },
-  { id: "packaging-design", name: "Packaging Design", category: "Graphic Design", description: "Product packaging that stands out on shelves", icon: "📦", workCount: 10 },
-  { id: "label-design", name: "Label Design", category: "Graphic Design", description: "Custom product labels with strong shelf appeal", icon: "🏷️", workCount: 14 },
-  { id: "catalog-design", name: "Catalog Design", category: "Graphic Design", description: "Professional product catalogs & lookbooks", icon: "📚", workCount: 5 },
-  { id: "infographic-design", name: "Infographic Design", category: "Graphic Design", description: "Data-driven visuals that simplify complexity", icon: "📊", workCount: 9 },
-  { id: "menu-design", name: "Menu Design", category: "Graphic Design", description: "Restaurant & café menus with appetizing layouts", icon: "🍽️", workCount: 7 },
-  { id: "company-profile", name: "Company Profile Design", category: "Graphic Design", description: "Corporate profiles that build credibility", icon: "🏢", workCount: 4 },
+        {
+          id: "logo2",
+          type: "image",
+          filter: "Logo",
+          src: "https://images.unsplash.com/photo-1626785774573-4b799315345d"
+        },
 
-  // Motion Graphics
-  { id: "logo-animation", name: "Logo Animation", category: "Motion Graphics", description: "Bring your logo to life with dynamic motion", icon: "✨", workCount: 16 },
-  { id: "intro-outro", name: "Intro & Outro Animation", category: "Motion Graphics", description: "Professional video openings & closings", icon: "🎬", workCount: 12 },
-  { id: "explainer-animation", name: "Explainer Animation", category: "Motion Graphics", description: "Animated videos that explain complex ideas", icon: "💡", workCount: 8 },
-  { id: "social-media-animation", name: "Social Media Animation", category: "Motion Graphics", description: "Animated content for social platforms", icon: "🔄", workCount: 20 },
-  { id: "title-animation", name: "Title Animation", category: "Motion Graphics", description: "Cinematic text & title sequences", icon: "🔤", workCount: 10 },
-  { id: "product-animation", name: "Product Animation", category: "Motion Graphics", description: "3D & 2D product showcase animations", icon: "🎁", workCount: 6 },
-  { id: "kinetic-typography", name: "Kinetic Typography", category: "Motion Graphics", description: "Text-driven animations with rhythm & energy", icon: "🔡", workCount: 9 },
-  { id: "character-animation", name: "2D Character Animation", category: "Motion Graphics", description: "Expressive characters that tell stories", icon: "🧑‍🎨", workCount: 5 },
-  { id: "ui-ux-animation", name: "UI/UX Animation", category: "Motion Graphics", description: "Interface animations & micro-interactions", icon: "📲", workCount: 11 },
+        {
+          id: "brand1",
+          type: "image",
+          filter: "Brand Identity",
+          src: "https://images.unsplash.com/photo-1611224923853-80b023f02d71"
+        },
 
-  // Video Editing
-  { id: "corporate-video", name: "Corporate Video", category: "Video Editing", description: "Professional corporate films & presentations", icon: "🏢", workCount: 14 },
-  { id: "youtube-editing", name: "YouTube Video Editing", category: "Video Editing", description: "Engaging edits that boost watch time", icon: "▶️", workCount: 25 },
-  { id: "social-reels", name: "Social Media Reels", category: "Video Editing", description: "Short-form vertical videos for social", icon: "📱", workCount: 35 },
-  { id: "product-video", name: "Product Video", category: "Video Editing", description: "Compelling product demos & showcases", icon: "🎥", workCount: 12 },
-  { id: "event-highlight", name: "Event Highlight", category: "Video Editing", description: "Captivating recaps of events & conferences", icon: "🎉", workCount: 8 },
-  { id: "documentary", name: "Documentary Editing", category: "Video Editing", description: "Story-driven long-form documentary edits", icon: "🎞️", workCount: 4 },
-  { id: "music-video", name: "Music Video", category: "Video Editing", description: "Creative edits synced to music & beats", icon: "🎵", workCount: 6 },
-  { id: "wedding-video", name: "Wedding Video", category: "Video Editing", description: "Cinematic wedding films & highlight reels", icon: "💒", workCount: 10 },
-  { id: "testimonial-video", name: "Testimonial Video", category: "Video Editing", description: "Client & customer testimonial productions", icon: "🗣️", workCount: 15 },
-];
+        {
+          id: "card1",
+          type: "image",
+          filter: "Business Card",
+          src: "https://images.unsplash.com/photo-1611224923853-80b023f02d71"
+        },
 
-// Sample work items mapped to subcategories (using existing images as placeholders)
-export const portfolioItems: PortfolioWork[] = [
-  { id: "luxe-print", title: "Brand Identity — Luxe Print Co.", category: "Graphic Design", subcategory: "brand-identity", image: brandIdentity },
-  { id: "freshroots-pkg", title: "Packaging Design — FreshRoots", category: "Graphic Design", subcategory: "packaging-design", image: packagingDesign },
-  { id: "stylehub-social", title: "Social Media Campaign — StyleHub", category: "Graphic Design", subcategory: "social-media-post", image: socialCampaign },
-  { id: "techvista-logo", title: "Logo Animation — TechVista", category: "Motion Graphics", subcategory: "logo-animation", image: logoAnimation },
-  { id: "finflow-explainer", title: "Explainer Video — FinFlow App", category: "Motion Graphics", subcategory: "explainer-animation", image: explainerVideo },
-  { id: "summit-2024", title: "Corporate Video — Summit 2024", category: "Video Editing", subcategory: "corporate-video", image: corporateVideo },
-];
+        {
+          id: "stationery1",
+          type: "image",
+          filter: "Brand Stationery",
+          src: "https://source.unsplash.com/random/900x700?stationery"
+        }
 
-export const getSubcategoriesByCategory = (category: string) =>
-  subcategories.filter((s) => s.category === category);
+      ]
+    },
 
-export const getWorkBySubcategory = (subcategoryId: string) =>
-  portfolioItems.filter((w) => w.subcategory === subcategoryId);
+    "Marketing & Advertising Design": {
+      filters: ["Hoarding", "Standee", "Banner", "Ad Poster"],
+      works: [
 
-export const getSubcategoryById = (id: string) =>
-  subcategories.find((s) => s.id === id);
+        {
+          id: "hoarding1",
+          type: "image",
+          filter: "Hoarding",
+          src: "https://source.unsplash.com/random/900x700?billboard"
+        },
+
+        {
+          id: "standee1",
+          type: "image",
+          filter: "Standee",
+          src: "https://source.unsplash.com/random/900x700?advertising"
+        },
+
+        {
+          id: "banner1",
+          type: "image",
+          filter: "Banner",
+          src: "https://source.unsplash.com/random/900x700?marketing"
+        }
+
+      ]
+    },
+
+    "Packaging & Product Design": {
+      filters: ["Label Design", "Packaging", "Box Design"],
+      works: [
+
+        {
+          id: "pkg1",
+          type: "image",
+          filter: "Packaging",
+          src: "https://source.unsplash.com/random/900x700?packaging"
+        },
+
+        {
+          id: "pkg2",
+          type: "image",
+          filter: "Label Design",
+          src: "https://source.unsplash.com/random/900x700?product-label"
+        },
+
+        {
+          id: "pkg3",
+          type: "image",
+          filter: "Box Design",
+          src: "https://source.unsplash.com/random/900x700?box-packaging"
+        }
+
+      ]
+    },
+
+    "Print Design": {
+      filters: ["Brochure", "Flyer", "Menu", "Poster", "Catalog"],
+      works: [
+
+        {
+          id: "brochure1",
+          type: "image",
+          filter: "Brochure",
+          src: "https://source.unsplash.com/random/900x700?brochure"
+        },
+
+        {
+          id: "flyer1",
+          type: "image",
+          filter: "Flyer",
+          src: "https://source.unsplash.com/random/900x700?flyer"
+        },
+
+        {
+          id: "poster1",
+          type: "image",
+          filter: "Poster",
+          src: "https://source.unsplash.com/random/900x700?poster"
+        }
+
+      ]
+    },
+
+    "Social Media Design": {
+      filters: [
+        "Instagram Posts",
+        "Facebook Creatives",
+        "LinkedIn Creatives",
+        "YouTube Thumbnails"
+      ],
+
+      works: [
+
+        {
+          id: "insta1",
+          type: "image",
+          filter: "Instagram Posts",
+          src: "https://source.unsplash.com/random/900x700?instagram"
+        },
+
+        {
+          id: "facebook1",
+          type: "image",
+          filter: "Facebook Creatives",
+          src: "https://source.unsplash.com/random/900x700?social-media"
+        },
+
+        {
+          id: "youtube1",
+          type: "image",
+          filter: "YouTube Thumbnails",
+          src: "https://source.unsplash.com/random/900x700?youtube"
+        }
+
+      ]
+    }
+
+  },
+
+  "Motion Graphics": {
+
+    "Logo Animation": {
+      works: [
+
+        {
+          id: "motion1",
+          type: "video",
+          source: "youtube",
+          url: "https://www.youtube.com/embed/xXTsxUAZnmo"
+        },
+
+        {
+          id: "motion2",
+          type: "video",
+          source: "drive",
+          url: "https://drive.google.com/file/d/1mNeOq3cJK5oXrc9IIX4494kJdXMcE1oo/preview?usp=sharing"
+        }
+
+      ]
+    },
+
+    "Social Media Motion Posts": {
+      works: [
+
+        {
+          id: "motion3",
+          type: "video",
+          source: "local",
+          url: "/videos/logo-animation.mp4"
+        }
+
+      ]
+    },
+
+    "Explainer Videos": {
+      works: [
+
+        {
+          id: "motion4",
+          type: "video",
+          youtube: "https://www.youtube.com/embed/aqz-KE-bpKQ"
+        }
+
+      ]
+    },
+
+    "Animated Ads": {
+      works: [
+
+        {
+          id: "motion5",
+          type: "video",
+          youtube: "https://www.youtube.com/embed/ysz5S6PUM-U"
+        }
+
+      ]
+    },
+
+    "Kinetic Typography": { works: [] },
+
+    "GIF Animations": { works: [] }
+
+  },
+
+  "Video Editing": {
+
+    "Promotional Videos": {
+      works: [
+        {
+          id: "video1",
+          type: "video",
+          youtube: "https://www.youtube.com/embed/ysz5S6PUM-U"
+        }
+      ]
+    },
+
+    "Corporate Videos Editing": {
+      works: [
+        {
+          id: "video2",
+          type: "video",
+          youtube: "https://www.youtube.com/embed/tgbNymZ7vqY"
+        }
+      ]
+    },
+
+    "Content Editing": {
+      works: [
+        {
+          id: "video3",
+          type: "video",
+          youtube: "https://www.youtube.com/embed/jNQXAC9IVRw"
+        }
+      ]
+    },
+
+    "Instagram Reels Editing": {
+      works: [
+        {
+          id: "video4",
+          type: "video",
+          youtube: "https://www.youtube.com/embed/aqz-KE-bpKQ"
+        }
+      ]
+    }
+
+  }
+
+};

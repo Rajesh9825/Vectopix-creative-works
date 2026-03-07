@@ -6,27 +6,44 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Portfolio from "./pages/Portfolio";
 import CategoryPortfolio from "./pages/CategoryPortfolio";
-import SubcategoryPortfolio from "./pages/SubcategoryPortfolio";
-import WorkDetail from "./pages/WorkDetail";
+// import WorkDetail from "./pages/WorkDetail";
+import WorkGallery from "./pages/WorkGallery";
 import NotFound from "./pages/NotFound";
+// import CustomCursor from "./components/CustomCursor";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      {/* <CustomCursor /> */}
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/vectopix-creative/">
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/portfolio/work/:workId" element={<WorkDetail />} />
-          <Route path="/portfolio/subcategory/:subcategoryId" element={<SubcategoryPortfolio />} />
-          <Route path="/portfolio/:category" element={<CategoryPortfolio />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+  <Route path="/" element={<Index />} />
+
+  {/* Portfolio main page */}
+  <Route path="/portfolio" element={<Portfolio />} />
+
+  {/* Category page (Graphic Design / Motion Graphics / Video Editing) */}
+  <Route path="/portfolio/:category" element={<CategoryPortfolio />} />
+
+  {/* Subcategory work gallery */}
+  <Route
+    path="/portfolio/:category/:subcategory"
+    element={<WorkGallery  />}
+  />
+
+  {/* Work detail viewer */}
+  {/* <Route
+    path="/portfolio/work/:workId"
+    element={<WorkDetail />}
+  /> */}
+
+  {/* Not found */}
+  <Route path="*" element={<NotFound />} />
+</Routes>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
