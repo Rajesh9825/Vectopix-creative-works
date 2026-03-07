@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { ArrowLeft } from "lucide-react";
@@ -100,7 +101,7 @@ const WorkGallery = () => {
 
         {/* FILTERS */}
 
-        {data.filters && (
+        {data.filters && data.works?.length > 0 && (
 
           <div className="flex flex-wrap gap-3 mb-10">
 
@@ -128,55 +129,91 @@ const WorkGallery = () => {
 
         <div className="grid md:grid-cols-3 gap-8">
 
-          {works.map((w: any, index: number) => (
+{works.length === 0 ? (
 
-            <div
-              key={w.id}
-              className="rounded-xl overflow-hidden group cursor-pointer"
-            >
-
-              {/* IMAGE */}
-
-              {w.type === "image" && (
-                <img
-                  src={w.src}
-                  alt=""
-                  onClick={() => setViewerIndex(index)}
-                  className="w-full h-full object-cover rounded-xl transition-transform duration-300 group-hover:scale-105"
-                />
-              )}
-
-              {/* VIDEO */}
-
-              {w.type === "video" && w.source === "youtube" && (
-  <iframe
-    className="w-full aspect-video rounded-xl"
-    src={w.url}
-    allowFullScreen
-  />
-)}
-
-{w.type === "video" && w.source === "drive" && (
-  <iframe
-    className="w-full aspect-video rounded-xl"
-    src={w.url}
-  />
-)}
-
-{w.type === "video" && w.source === "local" && (
-  <video
-    controls
-    className="w-full rounded-xl"
+  <motion.div
+    initial={{ opacity: 0, scale: 0.9 }}
+    animate={{ opacity: 1, scale: 1 }}
+    className="col-span-full flex items-center justify-center min-h-[320px]"
   >
-    <source src={w.url} type="video/mp4" />
-  </video>
-)}
 
-            </div>
+    <div className="relative overflow-hidden rounded-3xl p-16 text-center bg-gradient-to-br from-muted to-muted/50 border border-border shadow-xl">
 
-          ))}
+      {/* Yellow glow */}
+      {/* <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top,rgba(255,200,0,0.45),transparent_60%)] animate-pulse" /> */}
 
-        </div>
+      {/* Blue glow */}
+      {/* <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_bottom,rgba(59,130,246,0.35),transparent_60%)] animate-pulse" /> */}
+
+      <h2 className="text-3xl font-bold text-foreground mb-4">
+        🚀 Coming Soon
+      </h2>
+
+      <p className="text-muted-foreground max-w-md mx-auto text-lg">
+        We're currently crafting amazing{" "}
+        <span className="font-semibold">
+          {active !== "All" ? active : subcategory}
+        </span>{" "}
+        projects. Check back soon!
+      </p>
+
+      <div className="mt-6 h-[3px] w-24 mx-auto rounded-full bg-gradient-to-r from-yellow-400 via-blue-500 to-yellow-400 animate-pulse" />
+
+      <div className="mt-4 text-sm text-muted-foreground">
+        Stay tuned ✨
+      </div>
+
+    </div>
+
+  </motion.div>
+
+) : (
+
+  works.map((w:any, index:number) => (
+
+      <div
+        key={w.id}
+        className="rounded-xl overflow-hidden group cursor-pointer"
+      >
+
+        {w.type === "image" && (
+          <img
+            src={w.src}
+            alt=""
+            onClick={() => setViewerIndex(index)}
+            loading="lazy"
+            className="w-full h-full object-cover rounded-xl transition-transform duration-300 group-hover:scale-105"
+          />
+        )}
+
+        {w.type === "video" && w.source === "youtube" && (
+          <iframe
+            className="w-full aspect-video rounded-xl"
+            src={w.url}
+            allowFullScreen
+          />
+        )}
+
+        {w.type === "video" && w.source === "drive" && (
+          <iframe
+            className="w-full aspect-video rounded-xl"
+            src={w.url}
+          />
+        )}
+
+        {w.type === "video" && w.source === "local" && (
+          <video controls className="w-full rounded-xl">
+            <source src={w.url} type="video/mp4" />
+          </video>
+        )}
+
+      </div>
+
+    ))
+
+  )}
+
+</div>
 
       </div>
 
@@ -225,7 +262,7 @@ const WorkGallery = () => {
 
             <iframe
               className="w-[90vw] max-w-5xl aspect-video rounded-xl"
-              src={works[viewerIndex].youtube}
+              src={works[viewerIndex].url}
               title="Video Viewer"
               allowFullScreen
             />

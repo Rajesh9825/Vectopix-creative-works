@@ -6,18 +6,18 @@ export const portfolioStructure = {
       filters: ["Logo", "Brand Identity", "Business Card", "Brand Stationery"],
       works: [
 
-        {
+       {
           id: "logo1",
           type: "image",
           filter: "Logo",
-          src: "https://images.unsplash.com/photo-1611224923853-80b023f02d71"
+          src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v173468/Bandi_3_vwwwrx.jpg"
         },
 
         {
           id: "logo2",
           type: "image",
           filter: "Logo",
-          src: "https://images.unsplash.com/photo-1626785774573-4b799315345d"
+          src: "https://drive.google.com/uc?export=view&id=1WcQ8CMqrJB2uXBuvdeSqKSACbWDafShX/view"
         },
 
         {
@@ -173,7 +173,7 @@ export const portfolioStructure = {
           id: "motion1",
           type: "video",
           source: "youtube",
-          url: "https://www.youtube.com/embed/xXTsxUAZnmo"
+          url: "https://player.cloudinary.com/embed/?cloud_name=dep3ixqlu&public_id=Pornima_Ashish_For_Friend_Invitation_jialpu"
         },
 
         {
@@ -263,11 +263,11 @@ export const portfolioStructure = {
 
     "Instagram Reels Editing": {
       works: [
-        {
-          id: "video4",
-          type: "video",
-          youtube: "https://www.youtube.com/embed/aqz-KE-bpKQ"
-        }
+        // {
+        //   id: "video4",
+        //   type: "video",
+        //   youtube: "https://www.youtube.com/embed/aqz-KE-bpKQ"
+        // }
       ]
     }
 
