@@ -21,11 +21,11 @@ const ContactSection = () => {
     if (!form.current) return;
 
     emailjs.sendForm(
-      import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-      form.current,
-      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-    )
+    import.meta.env.VITE_EMAILJS_SERVICE_ID,
+    import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+    form.current,
+    import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+  )
       .then(
         () => {
           alert("Message sent successfully!");
@@ -41,6 +41,27 @@ const ContactSection = () => {
   return (
     <section id="contact" className="section-padding bg-gradient-blue relative overflow-hidden" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 md:px-8 relative">
+
+
+      <motion.div
+  initial={{ opacity: 0, y: 30 }}
+  animate={isInView ? { opacity: 1, y: 0 } : {}}
+  transition={{ duration: 0.6 }}
+  className="text-center mb-10"
+>
+  <span className="text-sm font-semibold text-primary uppercase tracking-widest">
+    Get In Touch
+  </span>
+
+  <h2 className="text-4xl md:text-5xl font-bold mt-3 text-white">
+    Let's Work Together
+  </h2>
+
+  <p className="mt-4 text-white/80 max-w-xl mx-auto">
+    Have a project in mind? We'd love to hear about it. Send us a message and we will get back to you soon.
+  </p>
+</motion.div>
+
 
         <motion.form
   ref={form}
