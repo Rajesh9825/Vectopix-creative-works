@@ -17,14 +17,18 @@ const formatTitle = (slug: string) =>
 const WorkGallery = () => {
 
   const { category, subcategory } = useParams();
-  const decodedCategory = formatTitle(category || "");
-  const decodedSubcategory = formatTitle(subcategory || "");
   const navigate = useNavigate();
-
+  
   const data =
-  portfolioStructure[decodedCategory as keyof typeof portfolioStructure]?.[
-    decodedSubcategory as any
-  ];
+    portfolioStructure[
+      category as keyof typeof portfolioStructure
+    ]?.[subcategory as any];
+  
+
+  // const data =
+  // portfolioStructure[decodedCategory as keyof typeof portfolioStructure]?.[
+  //   decodedSubcategory as any
+  // ];
 
   if (!data) {
     return (
@@ -94,11 +98,11 @@ const WorkGallery = () => {
           </button>
 
           <h1 className="text-4xl md:text-6xl font-bold text-brand-dark">
-            {decodedSubcategory}
+            {formatTitle(subcategory || "")}
           </h1>
 
           <p className="mt-4 text-brand-dark/70 max-w-xl text-lg">
-            Explore our {subcategory?.toLowerCase()} creative projects crafted for modern brands.
+            Explore our {formatTitle(subcategory || "").toLowerCase()} creative projects crafted for modern brands.
           </p>
 
         </div>

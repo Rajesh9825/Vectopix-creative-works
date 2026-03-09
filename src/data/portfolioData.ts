@@ -1,8 +1,8 @@
 export const portfolioStructure = {
 
-  "Graphic Design": {
+  "graphic-design": {
 
-    "Branding and Identity": {
+    "branding-and-identity": {
       filters: ["Logo", "Brand Identity", "Business Card", "Brand Stationery"],
       works: [
         /* Logo */
@@ -190,7 +190,7 @@ export const portfolioStructure = {
       ]
     },
 
-    "Marketing & Advertising Design": {
+    "marketing-and-advertising-design": {
       // filters: ["Hoarding", "Standee", "Banner", "Ad Poster"],
       works: [
           /* Hording */
@@ -226,7 +226,7 @@ export const portfolioStructure = {
       ]
     },
 
-    "Packaging & Product Design": {
+    "packaging-and-product-design": {
       filters: ["Label Design", "Packaging"],
       works: [
         /* Packaging */
@@ -282,7 +282,7 @@ export const portfolioStructure = {
       ]
     },
 
-    "Print Design": {
+    "print-design": {
       filters: ["Brochure", "Flyer", "Menu Card", "Poster", "Catalog"],
       works: [
         /* Brochure */
@@ -423,7 +423,7 @@ export const portfolioStructure = {
       ]
     },
 
-    "Social Media Design": {
+    "social-media-design": {
       filters: [
         "Instagram Posts",
         "Whatsapp Invitations",
@@ -604,9 +604,9 @@ export const portfolioStructure = {
 
   },
 
-  "Motion Graphics": {
+  "motion-graphics": {
 
-    "Logo Animation": {
+    "logo-animation": {
       works: [
 
         {
@@ -647,7 +647,7 @@ export const portfolioStructure = {
       ]
     },
 
-    "Social Media Motion Posts": {
+    "social-media-motion-posts": {
       filters: ["Promotional", "Invitation"],
       works: [
         /* Promotional */
@@ -756,7 +756,7 @@ export const portfolioStructure = {
       ]
     },
 
-    "Explainer Videos": {
+    "explainer-videos": {
       works: [
 
         {
@@ -768,7 +768,7 @@ export const portfolioStructure = {
       ]
     },
 
-    "Animated Ads": {
+    "animated-ads": {
       works: [
 
         {
@@ -780,15 +780,15 @@ export const portfolioStructure = {
       ]
     },
 
-    "Kinetic Typography": { works: [] },
+    "kinetic-typography": { works: [] },
 
-    "GIF Animations": { works: [] }
+    "gif-animations": { works: [] }
 
   },
 
-  "Video Editing": {
+  "video-editing": {
 
-    "Promotional Videos": {
+    "promotional-videos": {
       works: [
         {
           id: "video1",
@@ -811,7 +811,7 @@ export const portfolioStructure = {
       ]
     },
 
-    "Corporate Videos Editing": {
+    "corporate-videos-editing": {
       works: [
         // {
         //   id: "video2",
@@ -821,7 +821,7 @@ export const portfolioStructure = {
       ]
     },
 
-    "Content Editing": {
+    "content-editing": {
       works: [
         // {
         //   id: "video3",
@@ -831,7 +831,7 @@ export const portfolioStructure = {
       ]
     },
 
-    "Instagram Reels Editing": {
+    "instagram-reels": {
       works: [
         // {
         //   id: "video4",

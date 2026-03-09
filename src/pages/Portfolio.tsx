@@ -87,9 +87,7 @@ const PortfolioPage = () => {
               transition={{ duration: 0.4, delay: i * 0.05 }}
               className="group cursor-pointer"
               onClick={() =>
-                navigate(
-                  `/portfolio/${encodeURIComponent(item.category)}/${encodeURIComponent(item.title)}`
-                )
+                navigate(`/portfolio/${item.category}/${item.slug}`)
               }
             >
 

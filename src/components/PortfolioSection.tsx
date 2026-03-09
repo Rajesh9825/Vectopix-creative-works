@@ -83,9 +83,7 @@ const PortfolioSection = () => {
     transition={{ duration: 0.4, delay: i * 0.05 }}
     className="group cursor-pointer"
     onClick={() =>
-      navigate(
-        `/portfolio/${slugify(item.category)}/${slugify(item.title)}`
-      )
+      navigate(`/portfolio/${item.category}/${item.slug}`)
     }
   
               >
