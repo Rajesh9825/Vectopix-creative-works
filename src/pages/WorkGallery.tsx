@@ -7,15 +7,24 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { portfolioStructure } from "@/data/portfolioData";
 
+const formatTitle = (slug: string) =>
+  slug
+    .split("-")
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+
+
 const WorkGallery = () => {
 
   const { category, subcategory } = useParams();
+  const decodedCategory = formatTitle(category || "");
+  const decodedSubcategory = formatTitle(subcategory || "");
   const navigate = useNavigate();
 
   const data =
-    portfolioStructure[category as keyof typeof portfolioStructure]?.[
-      subcategory as any
-    ];
+  portfolioStructure[decodedCategory as keyof typeof portfolioStructure]?.[
+    decodedSubcategory as any
+  ];
 
   if (!data) {
     return (
@@ -85,7 +94,7 @@ const WorkGallery = () => {
           </button>
 
           <h1 className="text-4xl md:text-6xl font-bold text-brand-dark">
-            {subcategory}
+            {decodedSubcategory}
           </h1>
 
           <p className="mt-4 text-brand-dark/70 max-w-xl text-lg">

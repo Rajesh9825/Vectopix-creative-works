@@ -5,6 +5,12 @@ import { useNavigate } from "react-router-dom";
 
 import { portfolioCategories } from "@/data/portfolioCategories";
 
+const slugify = (text: string) =>
+  text
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/\s+/g, "-")
+    .replace(/[^\w-]+/g, "");
 
 const categories = ["All", "Graphic Design", "Motion Graphics", "Video Editing"];
 
@@ -78,7 +84,7 @@ const PortfolioSection = () => {
     className="group cursor-pointer"
     onClick={() =>
       navigate(
-        `/portfolio/${encodeURIComponent(item.category)}/${encodeURIComponent(item.title)}`
+        `/portfolio/${slugify(item.category)}/${slugify(item.title)}`
       )
     }
   
