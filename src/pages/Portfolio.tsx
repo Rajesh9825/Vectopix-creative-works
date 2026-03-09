@@ -7,14 +7,19 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { portfolioCategories } from "@/data/portfolioCategories";
 
-const filters = ["All", "Graphic Design", "Motion Graphics", "Video Editing"];
+const filters = [
+  { label: "All", value: "all" },
+  { label: "Graphic Design", value: "graphic-design" },
+  { label: "Motion Graphics", value: "motion-graphics" },
+  { label: "Video Editing", value: "video-editing" }
+];
 
 const PortfolioPage = () => {
   const navigate = useNavigate();
-  const [active, setActive] = useState("All");
+  const [active, setActive] = useState("all");
 
   const filtered =
-    active === "All"
+    active === "all"
       ? Object.entries(portfolioCategories).flatMap(([category, items]) =>
           items.map((item) => ({ ...item, category }))
         )
@@ -59,15 +64,15 @@ const PortfolioPage = () => {
           {filters.map((cat) => (
 
             <button
-              key={cat}
-              onClick={() => setActive(cat)}
+              key={cat.value}
+              onClick={() => setActive(cat.value)}
               className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
-                active === cat
+                active === cat.value
                   ? "bg-primary text-primary-foreground shadow-card"
                   : "bg-muted text-muted-foreground hover:bg-muted/80"
               }`}
             >
-              {cat}
+              {cat.label}
             </button>
 
           ))}
@@ -96,6 +101,7 @@ const PortfolioPage = () => {
                 <img
                   src={item.image}
                   alt={item.title}
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
 
@@ -104,7 +110,7 @@ const PortfolioPage = () => {
                 <div className="absolute bottom-0 left-0 right-0 p-6">
 
                   <span className="text-xs font-semibold uppercase tracking-wider text-primary/80">
-                    {item.category}
+                    {item.category.replace("-", " ")}
                   </span>
 
                   <h3 className="text-lg font-bold mt-1 text-white">

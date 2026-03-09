@@ -10,6 +10,8 @@ import CategoryPortfolio from "./pages/CategoryPortfolio";
 import WorkGallery from "./pages/WorkGallery";
 import NotFound from "./pages/NotFound";
 // import CustomCursor from "./components/CustomCursor";
+import ScrollToTop from "@/components/ScrollToTop";
+
 
 const queryClient = new QueryClient();
 
@@ -20,6 +22,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+      <ScrollToTop />
         <Routes>
   <Route path="/" element={<Index />} />
 

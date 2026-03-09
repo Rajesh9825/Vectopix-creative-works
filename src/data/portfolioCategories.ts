@@ -1,4 +1,5 @@
 export const portfolioCategories = {
+  
   "graphic-design": [
     {
       title: "Branding and Identity",
