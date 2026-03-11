@@ -8,35 +8,69 @@ const ContactSection = () => {
   const form = useRef<HTMLFormElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  const companyWhatsapp = "917038473369"; // your number with country code
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     subject: "",
     message: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    if (!form.current) return;
+  if (!form.current) return;
 
-    emailjs.sendForm(
-    import.meta.env.VITE_EMAILJS_SERVICE_ID,
-    import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-    form.current,
-    import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-  )
-      .then(
-        () => {
-          alert("Message sent successfully!");
-          setFormData({ name: "", email: "", subject: "", message: "" });
-        },
-        (error) => {
-          console.log(error);
-          alert("Something went wrong. Please try again.");
-        }
+  emailjs
+    .sendForm(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      form.current,
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    )
+    .then(() => {
+
+      const companyWhatsapp = "917038473369";
+
+      const message = `Hello ${formData.name},
+
+Thank you for contacting VectoPix Creative Works.
+
+We have received your inquiry and our team will get back to you shortly.
+
+If your project is urgent, feel free to message us here.
+
+Regards
+VectoPix Creative Works`;
+
+      const whatsappURL =
+        `https://wa.me/${companyWhatsapp}?text=${encodeURIComponent(message)}`;
+
+      const confirmRedirect = window.confirm(
+        "✅ Thank you for contacting VectoPix!\n\nPress OK to continue the conversation on WhatsApp.\nPress Cancel if you want to stay on this page."
       );
-  };
+
+      if (confirmRedirect) {
+        window.open(whatsappURL, "_blank");
+      }
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: ""
+      });
+
+    })
+    .catch((error) => {
+      console.log(error);
+      alert("Something went wrong. Please try again.");
+    });
+};
+
 
   return (
     <section id="contact" className="section-padding bg-gradient-blue relative overflow-hidden" ref={ref}>
@@ -69,72 +103,82 @@ const ContactSection = () => {
   initial={{ opacity: 0, y: 30 }}
   animate={isInView ? { opacity: 1, y: 0 } : {}}
   transition={{ delay: 0.2, duration: 0.6 }}
-  className="max-w-2xl mx-auto bg-white rounded-2xl p-8 shadow-lg"
+  className="max-w-2xl mx-auto bg-white rounded-2xl p-8 shadow-lg space-y-4"
 >
 
-  {/* Name + Email */}
-  <div className="grid md:grid-cols-2 gap-4 mb-4">
+{/* Name */}
+<input
+  type="text"
+  name="name"
+  placeholder="Your Name"
+  required
+  value={formData.name}
+  onChange={(e) =>
+    setFormData({ ...formData, name: e.target.value })
+  }
+  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary"
+/>
 
-    <input
-      type="text"
-      name="name"
-      placeholder="Your Name"
-      required
-      value={formData.name}
-      onChange={(e) =>
-        setFormData({ ...formData, name: e.target.value })
-      }
-      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary"
-    />
+{/* Mobile */}
+<input
+  type="tel"
+  name="phone"
+  placeholder="Mobile Number"
+  required
+  value={formData.phone}
+  onChange={(e) =>
+    setFormData({ ...formData, phone: e.target.value })
+  }
+  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary"
+/>
 
-    <input
-      type="email"
-      name="email"
-      placeholder="Your Email"
-      required
-      value={formData.email}
-      onChange={(e) =>
-        setFormData({ ...formData, email: e.target.value })
-      }
-      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary"
-    />
+{/* Email */}
+<input
+  type="email"
+  name="email"
+  placeholder="Your Email"
+  required
+  value={formData.email}
+  onChange={(e) =>
+    setFormData({ ...formData, email: e.target.value })
+  }
+  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary"
+/>
 
-  </div>
+{/* Subject */}
+<input
+  type="text"
+  name="subject"
+  placeholder="Subject"
+  required
+  value={formData.subject}
+  onChange={(e) =>
+    setFormData({ ...formData, subject: e.target.value })
+  }
+  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary"
+/>
 
-  {/* Subject */}
-  <input
-    type="text"
-    name="subject"
-    placeholder="Subject"
-    required
-    value={formData.subject}
-    onChange={(e) =>
-      setFormData({ ...formData, subject: e.target.value })
-    }
-    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary mb-4"
-  />
+{/* Message */}
+<textarea
+  name="message"
+  placeholder="Your Message"
+  rows={5}
+  required
+  value={formData.message}
+  onChange={(e) =>
+    setFormData({ ...formData, message: e.target.value })
+  }
+  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+/>
 
-  {/* Message */}
-  <textarea
-    name="message"
-    placeholder="Your Message"
-    rows={5}
-    required
-    value={formData.message}
-    onChange={(e) =>
-      setFormData({ ...formData, message: e.target.value })
-    }
-    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary resize-none mb-6"
-  />
-
-  {/* Submit Button */}
-  <button
-    type="submit"
-    className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-yellow-400 hover:bg-yellow-500 text-black font-semibold transition"
-  >
-    Send Message
-    <Send className="w-4 h-4" />
-  </button>
+{/* Submit */}
+<button
+  type="submit"
+  className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-yellow-400 hover:bg-yellow-500 text-black font-semibold transition"
+>
+  Send Message
+  <Send className="w-4 h-4" />
+</button>
 
 </motion.form>
       </div>
