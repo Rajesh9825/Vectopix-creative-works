@@ -32,6 +32,18 @@ const ContactSection = () => {
     )
     .then(() => {
 
+      {/* Google Form Fetch */}
+      const formDataToSend = new FormData();
+      formDataToSend.append("name", formData.name);
+      formDataToSend.append("phone", formData.phone);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("subject", formData.subject);
+      formDataToSend.append("message", formData.message);
+
+      fetch(import.meta.env.VITE_GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        body: formDataToSend
+      });
       const companyWhatsapp = "917038473369";
 
       const message = `Hello ${formData.name},
