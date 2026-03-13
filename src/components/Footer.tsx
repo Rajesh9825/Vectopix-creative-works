@@ -67,7 +67,7 @@ const Footer = () => {
             <div className="flex flex-col gap-2 text-sm text-secondary-foreground/60">
               <p>+91 70384 73369</p>
               <p>vectopixcreatives@gmail.com</p>
-              <p>Ganesh Chamber, Balaji Nagar, Pune - 411043</p>
+              <p>Pune, Maharashtra</p>
             </div>
 
             {/* Social Icons */}
