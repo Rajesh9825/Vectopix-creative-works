@@ -46,16 +46,23 @@ const ContactSection = () => {
       });
       const companyWhatsapp = "917038473369";
 
-      const message = `Hello ${formData.name},
+      const message = `Hello VectoPix,
 
-Thank you for contacting VectoPix Creative Works.
+        My name is ${formData.name}.
 
-We have received your inquiry and our team will get back to you shortly.
+        I’m interested in your services and would like to discuss a project.
 
-If your project is urgent, feel free to message us here.
+        Service Inquiry: ${formData.subject}
 
-Regards
-VectoPix Creative Works`;
+        Message:
+        ${formData.message}
+
+        Contact Details:
+        Phone: ${formData.phone}
+        Email: ${formData.email}
+
+        Looking forward to hearing from you.`;
+
 
       const whatsappURL =
         `https://wa.me/${companyWhatsapp}?text=${encodeURIComponent(message)}`;
