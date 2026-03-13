@@ -310,20 +310,15 @@ export const portfolioStructure = {
           filter: "Brochure",
           src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873811/brochure4_vjists.jpg"
         },
+        
         {
           id: "brochure5",
-          type: "image",
-          filter: "Brochure",
-          src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873811/brochure1_bwniiy.jpg"
-        },
-        {
-          id: "brochure6",
           type: "image",
           filter: "Brochure",
           src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873811/brochure2_o2ukph.jpg"
         },
         {
-          id: "brochure7",
+          id: "brochure6",
           type: "image",
           filter: "Brochure",
           src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873810/bochure3_rbddlv.jpg"
@@ -340,28 +335,22 @@ export const portfolioStructure = {
           id: "flyer2",
           type: "image",
           filter: "Flyer",
-          src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873984/flyer1_jt0evc.jpg"
+          src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873986/flyer3_gbwt4e.jpg"
         },
         {
           id: "flyer3",
           type: "image",
           filter: "Flyer",
-          src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873986/flyer3_gbwt4e.jpg"
+          src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873989/flyer5_uqaxg3.jpg"
         },
         {
           id: "flyer4",
           type: "image",
           filter: "Flyer",
-          src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873989/flyer5_uqaxg3.jpg"
-        },
-        {
-          id: "flyer5",
-          type: "image",
-          filter: "Flyer",
           src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873987/flyer4_q2qylv.jpg"
         },
         {
-          id: "flyer6",
+          id: "flyer5",
           type: "image",
           filter: "Flyer",
           src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873990/flyer6_epeomp.jpg"
@@ -394,24 +383,24 @@ export const portfolioStructure = {
           filter: "Poster",
           src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873980/DD_title_ky4gqq.jpg"
         },
-        {
-          id: "poster2",
-          type: "image",
-          filter: "Poster",
-          src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873988/Swapnasundari_poster_2_ym2s67.jpg"
-        },
+        // {
+        //   id: "poster2",
+        //   type: "image",
+        //   filter: "Poster",
+        //   src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873988/Swapnasundari_poster_2_ym2s67.jpg"
+        // },
         {
           id: "poster3",
           type: "image",
           filter: "Poster",
           src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873987/Tawal--_iirfmb.jpg"
         },
-        {
-          id: "poster4",
-          type: "image",
-          filter: "Poster",
-          src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873985/Swapnasundari_poster_2026_2_bkf5bk.jpg"
-        },
+        // {
+        //   id: "poster4",
+        //   type: "image",
+        //   filter: "Poster",
+        //   src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873985/Swapnasundari_poster_2026_2_bkf5bk.jpg"
+        // },
         {
           id: "poster7",
           type: "image",
