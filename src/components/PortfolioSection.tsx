@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FileText, Play, Monitor, Plus, X } from "lucide-react";
+import { FileText, Play, Monitor, Plus, X, ChevronDown } from "lucide-react";
 import { portfolioData } from "../data/portfolioData";
 import React, { forwardRef } from "react";
 
@@ -14,12 +14,11 @@ const mainCategories = [
 ];
 
 const subCategories: Record<string, string[]> = {
-  "Design & Print": ["Logo Design", "Visiting Cards", "Flyers", "Brochures", "Menu Cards", "Social Media","Packaging","Posters","Invitation Cards", "Merchandise"],
+  "Design & Print": ["Logo Design", "Visiting Cards", "Flyers", "Brochures", "Branding", "Social Media","Packaging","Posters","Invitation Cards", "Merchandise"],
   "Motion & Ads": ["Logo Animation",  "Social Media & Ads", "Invitations", "Explainer Videos", "2D Animation", "3D Animation"],
   "Video Production": ["Promotional Videos", "Corporate Videos", "Content Editing", "Instagram Reels"]
 };
 
-// --- Helper: Extract YouTube ID ---
 const getYoutubeId = (url: string) => {
     if (!url) return null;
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=|shorts\/)([^#&?]*).*/;
@@ -32,13 +31,23 @@ const PortfolioSection = () => {
   const [subTab, setSubTab] = useState(subCategories["Design & Print"][0]);
   const [index, setIndex] = useState(-1);
   const [activeVideo, setActiveVideo] = useState<{url: string, isVertical: boolean} | null>(null);
+  
+  const [visibleCount, setVisibleCount] = useState(6);
 
   const currentCat = mainCategories.find(c => c.name === mainTab) || mainCategories[0];
-  const currentItems = portfolioData?.[mainTab]?.[subTab] || [];
+  const allItems = portfolioData?.[mainTab]?.[subTab] || [];
+  
+  const visibleItems = allItems.slice(0, visibleCount);
 
   const handleMainTabChange = (tab: string) => {
     setMainTab(tab);
     setSubTab(subCategories[tab][0]);
+    setVisibleCount(6);
+  };
+
+  const handleSubTabChange = (sub: string) => {
+    setSubTab(sub);
+    setVisibleCount(6);
   };
 
   return (
@@ -51,7 +60,6 @@ const PortfolioSection = () => {
           </h2>
         </div>
 
-        {/* MAIN FILTERS */}
         <div className="flex flex-wrap justify-center p-2 bg-brand-dark/5 rounded-[2.5rem] w-fit mx-auto mb-12 relative">
           {mainCategories.map((cat) => (
             <button
@@ -70,13 +78,12 @@ const PortfolioSection = () => {
           ))}
         </div>
 
-        {/* SUB FILTERS */}
         <div className="flex justify-center mb-16">
           <div className="flex flex-wrap justify-center gap-3 max-w-4xl">
             {subCategories[mainTab].map((sub) => (
               <button
                 key={sub}
-                onClick={() => setSubTab(sub)}
+                onClick={() => handleSubTabChange(sub)}
                 className={`relative px-6 py-4 rounded-2xl border transition-all duration-300 ${
                   subTab === sub ? "border-transparent " + currentCat.textColor : "border-brand-dark/5 bg-gray-50 text-brand-dark/60 hover:bg-gray-100"
                 }`}
@@ -90,10 +97,9 @@ const PortfolioSection = () => {
           </div>
         </div>
 
-        {/* MASONRY GRID */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 max-w-7xl mx-auto space-y-8">
+        <div className="flex flex-wrap justify-center gap-6 max-w-7xl mx-auto">
           <AnimatePresence mode="popLayout">
-            {currentItems.map((item: any, idx: number) => {
+            {visibleItems.map((item: any, idx: number) => {
                const isVertical = item.id.toLowerCase().includes('reel') || 
                                   item.id.toLowerCase().includes('inv') || 
                                   item.url?.includes('shorts');
@@ -111,14 +117,22 @@ const PortfolioSection = () => {
           </AnimatePresence>
         </div>
 
-        <Lightbox 
-            open={index >= 0} 
-            index={index} 
-            close={() => setIndex(-1)} 
-            slides={currentItems.filter((i:any) => i.type === 'image').map((i:any) => ({ src: i.src }))} 
-        />
+        {allItems.length > visibleCount && (
+          <div className="mt-16 flex justify-center">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setVisibleCount(prev => prev + 6)}
+              className="group flex items-center gap-3 bg-brand-dark text-white px-10 py-5 rounded-full font-black uppercase tracking-[0.2em] text-[11px] shadow-2xl hover:bg-brand-yellow hover:text-brand-dark transition-all"
+            >
+              Explore More Works
+              <ChevronDown size={16} className="group-hover:translate-y-1 transition-transform" />
+            </motion.button>
+          </div>
+        )}
+
+        <Lightbox open={index >= 0} index={index} close={() => setIndex(-1)} slides={visibleItems.filter((i:any) => i.type === 'image').map((i:any) => ({ src: i.src }))} />
         
-        {/* HYBRID VIDEO PLAYER OVERLAY (YouTube + Cloudinary) */}
         <AnimatePresence>
           {activeVideo && (
             <motion.div 
@@ -173,7 +187,10 @@ const PortfolioItem = forwardRef(({ item, isVertical, currentCat, onImageClick, 
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={item.type === 'image' ? onImageClick : onVideoClick}
-      className={`break-inside-avoid group relative bg-brand-dark rounded-[1.5rem] overflow-hidden shadow-sm cursor-pointer mb-8 w-full ${
+      // Added transition for border-radius: Starts sharp (rounded-none), ends curved (rounded-[2rem])
+      className={`group relative bg-brand-dark overflow-hidden shadow-sm cursor-pointer w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] transition-all duration-500 ease-in-out ${
+        isHovered ? "rounded-[2.5rem]" : "rounded-none"
+      } ${
         item.type === 'image' ? 'aspect-square' : isVertical ? 'aspect-[9/16]' : 'aspect-video'
       }`}
     >
@@ -192,7 +209,7 @@ const PortfolioItem = forwardRef(({ item, isVertical, currentCat, onImageClick, 
                   src={isCloudinary 
                     ? `${item.url}&autoplay=true&muted=true` 
                     : `https://www.youtube.com/embed/${ytId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${ytId}&modestbranding=1`} 
-                  className="w-full h-full border-0 scale-[1.02]" 
+                  className="w-full h-full border-0 scale-[1.05]" 
                 />
               </div>
             ) : (
@@ -202,8 +219,8 @@ const PortfolioItem = forwardRef(({ item, isVertical, currentCat, onImageClick, 
             )}
           </>
         )}
-        
-        <div className={`absolute inset-0 border-[0px] group-hover:border-[10px] border-white/5 transition-all duration-500 z-20 pointer-events-none`} />
+        {/* Border overlay now also follows the curvature logic */}
+        <div className={`absolute inset-0 border-[0px] group-hover:border-[10px] border-white/5 transition-all duration-500 z-20 pointer-events-none ${isHovered ? "rounded-[2.5rem]" : "rounded-none"}`} />
       </div>
     </motion.div>
   );
