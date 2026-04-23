@@ -5,7 +5,7 @@ import { ArrowLeft } from "lucide-react";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { portfolioStructure } from "@/data/portfolioData";
+import { portfolioData } from "@/data/portfolioData";
 
 const formatTitle = (slug: string) =>
   slug
