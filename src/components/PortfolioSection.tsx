@@ -14,16 +14,24 @@ const mainCategories = [
 ];
 
 const subCategories: Record<string, string[]> = {
-  "Design & Print": ["Logo Design", "Visiting Cards", "Flyers", "Brochures", "Social Media", "Packaging", "Merchandise"],
-  "Motion & Ads": ["Logo Animation", "Animation Ads", "Motion Posts", "Explainer Videos", "2D Animation", "3D Animation"],
+  "Design & Print": ["Logo Design", "Visiting Cards", "Flyers", "Brochures", "Menu Cards", "Social Media","Packaging","Posters","Invitation Cards", "Merchandise"],
+  "Motion & Ads": ["Logo Animation",  "Social Media & Ads", "Invitations", "Explainer Videos", "2D Animation", "3D Animation"],
   "Video Production": ["Promotional Videos", "Corporate Videos", "Content Editing", "Instagram Reels"]
+};
+
+// --- Helper: Extract YouTube ID ---
+const getYoutubeId = (url: string) => {
+    if (!url) return null;
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=|shorts\/)([^#&?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : null;
 };
 
 const PortfolioSection = () => {
   const [mainTab, setMainTab] = useState("Design & Print");
   const [subTab, setSubTab] = useState(subCategories["Design & Print"][0]);
   const [index, setIndex] = useState(-1);
-  const [activeVideo, setActiveVideo] = useState<string | null>(null);
+  const [activeVideo, setActiveVideo] = useState<{url: string, isVertical: boolean} | null>(null);
 
   const currentCat = mainCategories.find(c => c.name === mainTab) || mainCategories[0];
   const currentItems = portfolioData?.[mainTab]?.[subTab] || [];
@@ -43,7 +51,7 @@ const PortfolioSection = () => {
           </h2>
         </div>
 
-        {/* FILTERS */}
+        {/* MAIN FILTERS */}
         <div className="flex flex-wrap justify-center p-2 bg-brand-dark/5 rounded-[2.5rem] w-fit mx-auto mb-12 relative">
           {mainCategories.map((cat) => (
             <button
@@ -62,7 +70,8 @@ const PortfolioSection = () => {
           ))}
         </div>
 
-        <div className="flex justify-center mb-16 overflow-visible">
+        {/* SUB FILTERS */}
+        <div className="flex justify-center mb-16">
           <div className="flex flex-wrap justify-center gap-3 max-w-4xl">
             {subCategories[mainTab].map((sub) => (
               <button
@@ -81,48 +90,56 @@ const PortfolioSection = () => {
           </div>
         </div>
 
-        {/* GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        {/* MASONRY GRID */}
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 max-w-7xl mx-auto space-y-8">
           <AnimatePresence mode="popLayout">
-            {currentItems.length > 0 ? (
-              currentItems.map((item: any, idx: number) => (
+            {currentItems.map((item: any, idx: number) => {
+               const isVertical = item.id.toLowerCase().includes('reel') || 
+                                  item.id.toLowerCase().includes('inv') || 
+                                  item.url?.includes('shorts');
+               return (
                 <PortfolioItem 
                   key={item.id} 
                   item={item} 
+                  isVertical={isVertical}
                   currentCat={currentCat} 
                   onImageClick={() => setIndex(idx)}
-                  onVideoClick={() => setActiveVideo(item.url)}
+                  onVideoClick={() => setActiveVideo({url: item.url, isVertical})}
                 />
-              ))
-            ) : (
-              <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="col-span-full py-24 flex flex-col items-center justify-center border-2 border-dashed border-gray-100 rounded-[3rem]">
-                <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mb-6 text-gray-300"><Plus size={24} /></div>
-                <h4 className="text-brand-dark font-black uppercase tracking-widest text-sm mb-2">New Projects Arriving</h4>
-                <p className="text-muted-foreground text-xs italic text-center">Our latest {subTab} works are currently in post-production.</p>
-              </motion.div>
-            )}
+              )
+            })}
           </AnimatePresence>
         </div>
 
-        <Lightbox open={index >= 0} index={index} close={() => setIndex(-1)} slides={currentItems.filter((i:any) => i.type === 'image').map((i:any) => ({ src: i.src }))} />
+        <Lightbox 
+            open={index >= 0} 
+            index={index} 
+            close={() => setIndex(-1)} 
+            slides={currentItems.filter((i:any) => i.type === 'image').map((i:any) => ({ src: i.src }))} 
+        />
         
+        {/* HYBRID VIDEO PLAYER OVERLAY (YouTube + Cloudinary) */}
         <AnimatePresence>
           {activeVideo && (
             <motion.div 
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[200] bg-brand-dark/98 flex items-center justify-center p-2 md:p-12"
+              className="fixed inset-0 z-[200] bg-brand-dark/98 flex items-center justify-center p-4 backdrop-blur-md"
             >
-              <button onClick={() => setActiveVideo(null)} className="absolute top-6 right-6 text-white hover:text-brand-yellow transition-colors z-[220]">
+              <button onClick={() => setActiveVideo(null)} className="absolute top-6 right-6 text-white hover:text-brand-yellow transition-colors z-[220] bg-white/10 p-2 rounded-full">
                 <X size={32} />
               </button>
-              <div className="w-full max-w-5xl aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/5 bg-black relative">
-                <div className="absolute inset-0 w-full h-full flex items-center justify-center scale-[1.08]"> 
-                  <iframe 
-                    src={`${activeVideo}${activeVideo.includes('?') ? '&' : '?'}autoplay=1&controls=1&mute=0`} 
-                    className="w-full h-full border-0" 
-                    allow="autoplay; fullscreen"
-                  />
-                </div>
+              
+              <div className={`w-full shadow-2xl border border-white/10 bg-black overflow-hidden rounded-3xl ${
+                activeVideo.isVertical ? 'max-w-[380px] aspect-[9/16]' : 'max-w-5xl aspect-video'
+              }`}>
+                <iframe 
+                  src={activeVideo.url.includes('cloudinary') 
+                    ? activeVideo.url 
+                    : `https://www.youtube.com/embed/${getYoutubeId(activeVideo.url)}?autoplay=1&rel=0`} 
+                  className="w-full h-full border-0" 
+                  allow="autoplay; fullscreen"
+                  allowFullScreen
+                />
               </div>
             </motion.div>
           )}
@@ -132,19 +149,18 @@ const PortfolioSection = () => {
   );
 };
 
-/* --- SUB COMPONENT --- */
+/* --- SUB COMPONENT: PortfolioItem --- */
 
-const PortfolioItem = forwardRef(({ item, currentCat, onImageClick, onVideoClick }: any, ref: any) => {
+const PortfolioItem = forwardRef(({ item, isVertical, currentCat, onImageClick, onVideoClick }: any, ref: any) => {
   const [isHovered, setIsHovered] = useState(false);
+  const ytId = item.type === 'video' ? getYoutubeId(item.url) : null;
+  const isCloudinary = item.url?.includes('cloudinary');
 
   const getThumbnail = () => {
     if (item.thumbnail) return item.thumbnail;
-    return `https://images.unsplash.com/photo-1626544823105-df950291f1cd?q=80&w=800&auto=format&id=${item.id}`;
-  };
-
-  const getPreviewUrl = (url: string) => {
-    const separator = url.includes('?') ? '&' : '?';
-    return `${url}${separator}autoplay=1&mute=1&muted=1&controls=0&start=5&end=12&loop=1&rel=0&modestbranding=1&showinfo=0&iv_load_policy=3`;
+    if (item.type === 'image') return item.src;
+    if (ytId) return `https://img.youtube.com/vi/${ytId}/maxresdefault.jpg`;
+    return "https://images.unsplash.com/photo-1626544823105-df950291f1cd?q=80&w=800&auto=format";
   };
 
   return (
@@ -157,43 +173,38 @@ const PortfolioItem = forwardRef(({ item, currentCat, onImageClick, onVideoClick
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={item.type === 'image' ? onImageClick : onVideoClick}
-      className="group relative aspect-video bg-brand-dark rounded-[2.5rem] overflow-hidden shadow-sm cursor-pointer"
+      className={`break-inside-avoid group relative bg-brand-dark rounded-[1.5rem] overflow-hidden shadow-sm cursor-pointer mb-8 w-full ${
+        item.type === 'image' ? 'aspect-square' : isVertical ? 'aspect-[9/16]' : 'aspect-video'
+      }`}
     >
-      {item.type === "image" ? (
-        <>
-          <img src={item.src} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-          <div className={`absolute inset-0 ${currentCat.hoverColor} opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10`} />
-          <div className="absolute inset-8 z-20 pointer-events-none">
-            <motion.div className="absolute top-0 left-0 right-0 h-[1px] bg-white origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-            <motion.div className="absolute bottom-0 left-0 right-0 h-[1px] bg-white origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-            <motion.div className="absolute top-0 bottom-0 left-0 w-[1px] bg-white origin-center scale-y-0 group-hover:scale-y-100 transition-transform duration-500" />
-            <motion.div className="absolute top-0 bottom-0 right-0 w-[1px] bg-white origin-center scale-y-0 group-hover:scale-y-100 transition-transform duration-500" />
-          </div>
-        </>
-      ) : (
-        <div className="w-full h-full relative bg-brand-dark flex items-center justify-center overflow-hidden">
-          <img 
-              src={getThumbnail()} 
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${isHovered ? 'opacity-20' : 'opacity-60'}`} 
-              alt="preview"
-          />
+      <div className="w-full h-full relative flex items-center justify-center overflow-hidden">
+        <img 
+            src={getThumbnail()} 
+            className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${isHovered && item.type === 'video' ? 'opacity-20 scale-110' : 'opacity-100'}`} 
+            alt="VectoPix Work"
+        />
 
-          {isHovered ? (
-            <div className="absolute inset-0 w-full h-full flex items-center justify-center">
-              <iframe 
-                src={getPreviewUrl(item.url)} 
-                className="w-[120%] h-[150%] border-0 pointer-events-none scale-110" 
-                allow="autoplay"
-              />
-            </div>
-          ) : (
-            <div className="z-10 bg-white/10 backdrop-blur-sm p-4 rounded-full border border-white/20">
-               <Play className="text-white fill-white" size={32} />
-            </div>
-          )}
-          <div className="absolute inset-0 z-30" />
-        </div>
-      )}
+        {item.type === 'video' && (
+          <>
+            {isHovered ? (
+              <div className="absolute inset-0 w-full h-full pointer-events-none">
+                <iframe 
+                  src={isCloudinary 
+                    ? `${item.url}&autoplay=true&muted=true` 
+                    : `https://www.youtube.com/embed/${ytId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${ytId}&modestbranding=1`} 
+                  className="w-full h-full border-0 scale-[1.02]" 
+                />
+              </div>
+            ) : (
+              <div className="z-10 bg-white/10 backdrop-blur-sm p-4 rounded-full border border-white/20 group-hover:scale-110 transition-transform">
+                 <Play className="text-white fill-white" size={24} />
+              </div>
+            )}
+          </>
+        )}
+        
+        <div className={`absolute inset-0 border-[0px] group-hover:border-[10px] border-white/5 transition-all duration-500 z-20 pointer-events-none`} />
+      </div>
     </motion.div>
   );
 });
