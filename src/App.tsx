@@ -19,12 +19,12 @@ import Blog from "./pages/Blog";
 import BlogDetail from "./pages/BlogDetail";
 
 // Service Pages
-import BrandingGraphicDesign from "./pages/services/BrandingGraphicDesign.tsx";
-import MotionAnimation from "./pages/services/MotionAnimation.tsx";
-import CinematicPost from "./pages/services/CinematicPost.tsx";
-import CommercialVideo from "./pages/services/CommercialVideo.tsx";
-import PrintMerchandise from "./pages/services/PrintMerchandise.tsx";
-import DigitalAdvertising from "./pages/services/DigitalMarketingStrategy.tsx";
+// import BrandingGraphicDesign from "./pages/services/BrandingGraphicDesign.tsx";
+// import MotionAnimation from "./pages/services/MotionAnimation.tsx";
+// import CinematicPost from "./pages/services/CinematicPost.tsx";
+// import CommercialVideo from "./pages/services/CommercialVideo.tsx";
+// import PrintMerchandise from "./pages/services/PrintMerchandise.tsx";
+// import DigitalAdvertising from "./pages/services/DigitalMarketingStrategy.tsx";
 
 // Whatsapp FAB
 import WhatsAppFAB from "./components/WhatsAppFAB.tsx";
@@ -52,12 +52,12 @@ const App = () => (
             <Route path="/" element={<Index />} />
             
             {/* Service pages */}
-            <Route path="/services/branding-graphic-design" element={<BrandingGraphicDesign />} />
+            {/* <Route path="/services/branding-graphic-design" element={<BrandingGraphicDesign />} />
             <Route path="/services/print-merchandise-production" element={<PrintMerchandise />} />
             <Route path="/services/digital-marketing-strategy" element={<DigitalAdvertising />} />
             <Route path="/services/motion-graphics-animation" element={<MotionAnimation />} />
             <Route path="/services/cinematic-post-production" element={<CinematicPost />} />
-            <Route path="/services/commercial-video-editing" element={<CommercialVideo />} />
+            <Route path="/services/commercial-video-editing" element={<CommercialVideo />} /> */}
 
             {/* Portfolio routes */}
             {/* <Route path="/portfolio" element={<Portfolio />} /> */}
