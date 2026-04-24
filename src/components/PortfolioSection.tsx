@@ -14,7 +14,7 @@ const mainCategories = [
 ];
 
 const subCategories: Record<string, string[]> = {
-  "Design & Print": ["Logo Design", "Visiting Cards", "Flyers", "Brochures", "Branding", "Social Media","Packaging","Posters","Invitation Cards", "Merchandise"],
+  "Design & Print": ["Logo Design", "Visiting Cards", "Flyers", "Brochures", "Branding", "Social Media","Packaging","Posters","ID Cards","Invitation Cards", "Merchandise"],
   "Motion & Ads": ["Logo Animation",  "Social Media & Ads", "Invitations"],
     // "Motion & Ads": ["Logo Animation",  "Social Media & Ads", "Invitations", "Explainer Videos", "2D Animation", "3D Animation"],
   "Video Production": ["Film Promotions", "Brand Promotions", "Promotional Videos"]

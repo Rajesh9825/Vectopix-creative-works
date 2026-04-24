@@ -27,8 +27,8 @@ import BlogDetail from "./pages/BlogDetail";
 // import DigitalAdvertising from "./pages/services/DigitalMarketingStrategy.tsx";
 
 // Whatsapp FAB
-// import WhatsAppFAB from "./components/WhatsAppFAB.tsx";
-// import VectoAI from "./components/VectoAI";
+import WhatsAppFAB from "./components/WhatsAppFAB.tsx";
+import VectoAI from "./components/VectoAI";
 
 
 const queryClient = new QueryClient();
@@ -74,7 +74,7 @@ const App = () => (
         </main>
 
         {/* WhatsApp FAB is now GLOBAL - it shows on every page */}
-        {/* <WhatsAppFAB /> */}
+        <WhatsAppFAB />
         {/* VectoAI is now GLOBAL - it shows on every page */}
         {/* <VectoAI /> */}
         
