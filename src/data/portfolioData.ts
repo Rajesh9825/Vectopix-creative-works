@@ -167,12 +167,16 @@ export const portfolioData: any = {
   },
 
   "Video Production": {
-    "Promotional Videos": [
+    "Film Promotions": [
+      { id: "v-film1", type: "video", url: "https://youtu.be/F5aKkOZtutg"},
+    ],
+    "Brand Promotions": [
       { id: "v-promo1", type: "video", url: "https://youtube.com/shorts/JNTc_R_eg1U?feature=share"},
       { id: "v-promo2", type: "video", url: "https://player.cloudinary.com/embed/?cloud_name=dep3ixqlu&public_id=Promotional%20Video%2FSplendour_Sampale_Flat_xj4ynm",thumbnail:"https://res.cloudinary.com/dep3ixqlu/image/upload/v1776950788/Screenshot_2026-04-23_185133_vynrgq.png"}
     ],
-    "Corporate Videos": [],
-    "Content Editing": [],
-    "Instagram Reels": []
+    "Promotional Videos": [
+      
+    ],
+
   }
 };
