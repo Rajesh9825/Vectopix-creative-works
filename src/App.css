@@ -11,4 +11,15 @@
 }
 
 
+/* Prevents layouts from breaking on small screens */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
 
+/* Ensures images never exceed their container */
+img {
+  max-width: 100%;
+  height: auto;
+}
