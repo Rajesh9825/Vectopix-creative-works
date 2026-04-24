@@ -3,19 +3,20 @@ import { GalleryThumbnails } from "lucide-react";
 export const portfolioData: any = {
   "Design & Print": {
     "Logo Design": [
+      
+      { id: "logo10", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/MAYAAPPLE_LOGO_z7zx0l.png" },
+      { id: "logo8", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/KS_Logo_2_fgwrsv.jpg" },
+      { id: "logo6", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/LL_DS_qk4t4n.jpg" },
+      { id: "logo11", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/SNP_LLP_LOGO_cxcdvd.png" },
+      { id: "logo14", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/Kantilal_zqo4ds.jpg" },
       { id: "logo1", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v173468/Bandi_3_vwwwrx.jpg" },
       { id: "logo2", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/Foundation_class_p7ye5x.jpg" },
       { id: "logo3", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/GK_mhngll.jpg" },
       { id: "logo4", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/GC_logo_yl9zc1.jpg" },
       { id: "logo5", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/metamorphic_icyznl.jpg" },
-      { id: "logo6", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/LL_DS_qk4t4n.jpg" },
       { id: "logo7", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873724/logo01_1_rrvjq5.jpg" },
-      { id: "logo8", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/KS_Logo_2_fgwrsv.jpg" },
-      { id: "logo10", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/MAYAAPPLE_LOGO_z7zx0l.png" },
-      { id: "logo11", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/SNP_LLP_LOGO_cxcdvd.png" },
       { id: "logo12", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/M_Studio_dxbk6m.jpg" },
       { id: "logo13", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/Kesar_Kaveri-_lhqjrx.jpg" },
-      { id: "logo14", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/Kantilal_zqo4ds.jpg" },
       { id: "logo15", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/Tapalwala_Logo_01_Moc_m5a9oo.jpg" },
       { id: "logo16", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/TMIC_ea0lrv.jpg" },
       { id: "logo17", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/Wada_biryani_moc_uyoptc.jpg" },
@@ -38,32 +39,36 @@ export const portfolioData: any = {
 
     ],
     "Flyers": [
-      { id: "flyer1", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873985/flyer2_rj0row.jpg" },
-      { id: "flyer2", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873986/flyer3_gbwt4e.jpg" },
-      { id: "flyer5", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873990/flyer5_uqaxg3.jpg" },
-      { id: "flyer6", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873990/flyer4_q2qylv.jpg" },
-      { id: "flyer3", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873990/flyer6_epeomp.jpg" },
-      // { id: "flyer4", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873990/flyer1_eblq9n.jpg" }
+      { id: "flyer1", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776956675/Flyer_6.jpg_spqwus.jpg" },
+      { id: "flyer2", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776956692/Flyer_3.jpg_l0vsdi.jpg" },
+      { id: "flyer5", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776956692/Flyer_4.jpg_wi7ivf.jpg" },
+      { id: "flyer6", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776956675/Flyer_5.jpg_jn2ote.jpg" },
+      { id: "flyer3", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776956681/Flyer_1.jpg_fqi14m.jpg" },
+      { id: "flyer4", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776956688/Flyer_2.jpg_vnuvh6.jpg" }
     ],
     "Brochures": [
+      { id: "brochure6", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776957257/Indian_Bank_Brochure.jpg_kmlgxn.jpg" },
+      { id: "brochure5", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776957259/Brochure_1.jpg_biz9u2.jpg" },
       { id: "brochure1", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873815/brochure6_cqmq8u.jpg" },
       { id: "brochure2", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873814/brochure7_toucur.jpg" },
       { id: "brochure3", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873814/brochure5_bz2fbu.jpg" },
       { id: "brochure4", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873811/brochure4_vjists.jpg" },
-      { id: "brochure5", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873811/brochure2_o2ukph.jpg" },
-      { id: "brochure6", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873810/bochure3_rbddlv.jpg" },
-      // { id: "brochure3", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873794/brochure7_eblq9n.jpg" }
-    ],
-    "Menu Cards": [
       { id: "menu1", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874385/menucard2_xcaz0c.jpg" },
       { id: "menu2", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874388/menucard3_xcgpuu.jpg" },
       { id: "menu3", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874323/menucard1_llrurm.jpg" }
     ],
-    //  "Posters": [
-    //   { id: "poster1", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873980/DD_title_ky4gqq.jpg" },
-    //   { id: "poster2", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873987/Tawal--_iirfmb.jpg" },
-    //   { id: "poster3", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873977/AMALL_Poster_vgd5ai.jpg" }
+    // "Menu Cards": [
+    //   { id: "menu1", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874385/menucard2_xcaz0c.jpg" },
+    //   { id: "menu2", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874388/menucard3_xcgpuu.jpg" },
+    //   { id: "menu3", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874323/menucard1_llrurm.jpg" }
     // ],
+    "Branding": [
+      { id: "menu1", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874148/Irani_Maha_Cafe_Standee_black_back_3_x_6_1_Qty_h7jury.jpg" },
+      { id: "menu2", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776957774/Newspaper_1.jpg_dhbkgj.jpg" },
+      { id: "menu3", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776957774/Newspaper_2.jpg_uluvjp.jpg" },
+      { id: "menu3", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776957775/Billboard_2.jpg_fpr36r.jpg" }
+    ],
+    
     "Social Media": [
       { id: "insta1", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874385/C01_5_iumuf2.jpg" },
       { id: "insta2", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874388/93_Avenew_SMP-01_lconhm.jpg" },
@@ -83,8 +88,8 @@ export const portfolioData: any = {
       // { id: "insta16", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874323/WhatsApp_Image_2024-01-29_at_21.27.48_2_bmmkyu.jpg" },
     ],
     "Packaging": [
-      { id: "pkg1", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/Packaging2_jgdplr.jpg" },
-      { id: "pkg2", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/Packaging1_oyyfnk.jpg" },
+      // { id: "pkg1", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/Packaging2_jgdplr.jpg" },
+      // { id: "pkg2", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/Packaging1_oyyfnk.jpg" },
       { id: "lbl1", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/Label5_pwgy7z.jpg" },
       { id: "lbl2", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/Label6_qtgaoi.jpg" },
       { id: "lbl3", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/Label4_fz9emp.jpg" },
@@ -100,6 +105,23 @@ export const portfolioData: any = {
       { id: "Poster5", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776944177/aapmuje_ache_lagne_lage.jpg_cpfr5p.jpg" },
       { id: "Poster6", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776944180/Bhavki.jpg_gtrljv.jpg" },
       // { id: "brochure3", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873794/brochure7_eblq9n.jpg" }
+    ],
+
+    "Invitation Cards": [
+       { id: "Invitaion8", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776958453/Inv_-4.jpg_ax2yci.jpg" },
+      { id: "Invitaion1", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776958454/Inv_-6.jpg_feqyht.jpg" },
+      { id: "Invitaion5", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776958541/Inv_-8.jpg_pem34p.jpg" },
+      
+      
+      { id: "Invitaion6", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776958540/Inv_-9.jpg_r5hdj2.jpg" },
+      { id: "Invitaion4", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776958551/Rectangle_1.jpg_jguhbo.jpg" },
+      { id: "Invitaion2", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776958553/Inv_-10.jpg_ypmy6k.jpg" },
+      { id: "Invitaion9", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776958451/Inv_-3.jpg_mtwbzl.jpg" },
+     { id: "Invitaion3", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776958555/Inv_-7.jpg_ohot55.jpg" },
+      { id: "Invitaion7", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776958456/Inv_-5.jpg_czdcbl.jpg" },
+      { id: "Invitaion10", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873966/Invitation_1_qem7ww.jpg" },
+      { id: "Invitaion13", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873969/Invitation_3_mqfjll.jpg"  },
+      
     ],
     "Merchandise": [
        /* Add your merchandise assets here */
@@ -119,16 +141,15 @@ export const portfolioData: any = {
 
     "Social Media & Ads": [
 
-      { id: "m-reel1", type: "video", url: "https://youtube.com/shorts/K1UiVx0yBKs?feature=share"},
-      { id: "m-reel2", type: "video", url: "https://youtube.com/shorts/QSh5dv-zHJM?feature=share"},
-      { id: "m-reel3", type: "video", url: "https://youtube.com/shorts/g4rv-4LlQ14?feature=share"},
-      { id: "m-reel4", type: "video", url: "https://youtube.com/shorts/Ib22Cv1c3lk?feature=share"},
-      { id: "m-reel5", type: "video", url: "https://youtube.com/shorts/SDX6XvcS9zA?feature=share"},
-      { id: "m-reel6", type: "video", url: "https://youtube.com/shorts/TbvcJtyQ3bY?feature=share"},
-      { id: "m-reel7", type: "video", url: "https://youtube.com/shorts/Y7hdghbvOyk?feature=share"},
-      { id: "m-reel8", type: "video", url: "https://youtube.com/shorts/Zxg45edH45k?feature=share"},
-      { id: "m-reel15", type: "video", url: "https://youtu.be/N2sPoPHLsIQ"},
-      
+      { id: "m-reel1", type: "video", url: "https://youtube.com/shorts/Zxg45edH45k?feature=share"},
+      { id: "m-reel2", type: "video", url: "https://youtube.com/shorts/K1UiVx0yBKs?feature=share"},
+      { id: "m-reel3", type: "video", url: "https://youtube.com/shorts/SDX6XvcS9zA?feature=share"},
+      { id: "m-reel4", type: "video", url: "https://youtube.com/shorts/g4rv-4LlQ14?feature=share"},
+      { id: "m-reel5", type: "video", url: "https://youtube.com/shorts/QSh5dv-zHJM?feature=share"},
+      { id: "m-reel6", type: "video", url: "https://youtube.com/shorts/Y7hdghbvOyk?feature=share"},
+      { id: "m-reel7", type: "video", url: "https://youtube.com/shorts/Ib22Cv1c3lk?feature=share"},
+      { id: "m-reel8", type: "video", url: "https://youtu.be/N2sPoPHLsIQ"},
+      { id: "m-reel9", type: "video", url: "https://youtube.com/shorts/TbvcJtyQ3bY?feature=share"},
       // Invitation motion posts
     ],
     "Invitations": [
@@ -146,12 +167,16 @@ export const portfolioData: any = {
   },
 
   "Video Production": {
-    "Promotional Videos": [
+    "Film Promotions": [
+      { id: "v-film1", type: "video", url: "https://youtu.be/F5aKkOZtutg"},
+    ],
+    "Brand Promotions": [
       { id: "v-promo1", type: "video", url: "https://youtube.com/shorts/JNTc_R_eg1U?feature=share"},
       { id: "v-promo2", type: "video", url: "https://player.cloudinary.com/embed/?cloud_name=dep3ixqlu&public_id=Promotional%20Video%2FSplendour_Sampale_Flat_xj4ynm",thumbnail:"https://res.cloudinary.com/dep3ixqlu/image/upload/v1776950788/Screenshot_2026-04-23_185133_vynrgq.png"}
     ],
-    "Corporate Videos": [],
-    "Content Editing": [],
-    "Instagram Reels": []
+    "Promotional Videos": [
+      
+    ],
+
   }
 };
