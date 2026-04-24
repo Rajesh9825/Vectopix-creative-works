@@ -134,4 +134,15 @@
     font-size: clamp(2rem, 7vw, 3.5rem);
     line-height: 1.08;
   }
+  .video-full-bleed {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover; /* This forces the video to fill the vertical space */
+  position: absolute;
+  top: 0;
+  left: 0;
 }
+
+
+}
+
