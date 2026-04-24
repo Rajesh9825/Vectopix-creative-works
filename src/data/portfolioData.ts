@@ -137,7 +137,7 @@ export const portfolioData: any = {
       { id: "motion5", type: "video", url: "https://youtu.be/3mmMApBiXh8"}
     ],
     
-    "Animation Ads": [],
+    // "Animation Ads": [],
 
     "Social Media & Ads": [
 
@@ -161,9 +161,9 @@ export const portfolioData: any = {
       { id: "m-reel14", type: "video", url: "https://youtube.com/shorts/QeeJ7vmH_5o?feature=share"}
 
     ],
-    "Explainer Videos": [],
-    "2D Animation": [],
-    "3D Animation": []
+    // "Explainer Videos": [],
+    // "2D Animation": [],
+    // "3D Animation": []
   },
 
   "Video Production": {
