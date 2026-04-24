@@ -74,7 +74,7 @@ const App = () => (
         </main>
 
         {/* WhatsApp FAB is now GLOBAL - it shows on every page */}
-        <WhatsAppFAB />
+        {/* <WhatsAppFAB /> */}
         {/* VectoAI is now GLOBAL - it shows on every page */}
         {/* <VectoAI /> */}
         
