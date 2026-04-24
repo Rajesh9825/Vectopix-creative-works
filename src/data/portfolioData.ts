@@ -63,37 +63,52 @@ export const portfolioData: any = {
     //   { id: "menu3", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874323/menucard1_llrurm.jpg" }
     // ],
     "Branding": [
-      { id: "branding1", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874148/Irani_Maha_Cafe_Standee_black_back_3_x_6_1_Qty_h7jury.jpg" },
-      { id: "branding2", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776957774/Newspaper_1.jpg_dhbkgj.jpg" },
-      { id: "branding3", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776957774/Newspaper_2.jpg_uluvjp.jpg" },
-      { id: "branding4", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776957775/Billboard_2.jpg_fpr36r.jpg" },
-      { id: "branding5", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777017503/Event_3.jpg_utx9bv.jpg" },
-      { id: "branding6", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777017494/Event_2.jpg_lvhnrk.jpg" },
-      { id: "branding7", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777017493/Billboard_3.jpg_mg0pdl.jpg" },
-      { id: "branding8", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777017485/Event_4.jpg_b97prm.jpg" },
-      { id: "branding9", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777017484/Event_1.jpg_vofjsc.jpg" },
-      { id: "branding10", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777017482/Billboard_4.jpg_cqqh0h.jpg" },
-      { id: "branding11", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777017483/hotel_1.jpg_ccukvt.jpg" },
-      { id: "branding12", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874150/Standee_meqtys.jpg" }
+      { id: "branding1", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777030210/SS1.jpg_fdncpu.jpg" },
+      { id: "branding2", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777030210/ss4.jpg_m1hdcg.jpg" },
+      { id: "branding3", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777030212/ss3.jpg_udg2kx.jpg" },
+      { id: "branding4", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777030211/SS2.jpg_l8xv6f.jpg" },
+      { id: "branding5", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874148/Irani_Maha_Cafe_Standee_black_back_3_x_6_1_Qty_h7jury.jpg" },
+      { id: "branding6", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776957774/Newspaper_1.jpg_dhbkgj.jpg" },
+      { id: "branding7", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776957774/Newspaper_2.jpg_uluvjp.jpg" },
+      { id: "branding8", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776957775/Billboard_2.jpg_fpr36r.jpg" },
+      { id: "branding9", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777017503/Event_3.jpg_utx9bv.jpg" },
+      { id: "branding10", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777017494/Event_2.jpg_lvhnrk.jpg" },
+      { id: "branding11", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777017493/Billboard_3.jpg_mg0pdl.jpg" },
+      { id: "branding12", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777017485/Event_4.jpg_b97prm.jpg" },
+      { id: "branding13", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777032616/Outdoor_Advertising_Mockup_202604041329_iwvay8.jpg" },
+      { id: "branding14", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777032615/Outdoor_Advertising_Mockup_202604041330_hsgwg4.jpg" },
+      { id: "branding15", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777032618/Create_a_realistic_202604041332_tttyvv.jpg" },
+      { id: "branding16", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777017484/Event_1.jpg_vofjsc.jpg" },
+      { id: "branding17", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777017482/Billboard_4.jpg_cqqh0h.jpg" },
+      { id: "branding18", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777017483/hotel_1.jpg_ccukvt.jpg" },
+      { id: "branding19", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874150/Standee_meqtys.jpg" }
+      
 
     ],
     
     "Social Media": [
-      { id: "insta1", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874385/C01_5_iumuf2.jpg" },
-      { id: "insta2", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874388/93_Avenew_SMP-01_lconhm.jpg" },
-      { id: "insta3", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874323/C01_9_vbm2mg.jpg" },
-      { id: "insta4", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874323/SM1_p69wrj.jpg" },
-      { id: "insta5", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874323/Sm4_iy0yx3.jpg" },
-      { id: "insta6", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874323/sm5_whzmj2.jpg" },
-      { id: "insta7", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874323/SM3_yn0o24.jpg" },
-      { id: "insta8", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874323/Sm_8_sa3wr4.jpg" },
-      { id: "insta9", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874323/sm_7_yqhqxz.jpg" },
-      { id: "insta10", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874323/C01_6_as4olx.jpg" },
-      { id: "insta11", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874323/C01_4_ca3n5i.jpg" },
-      { id: "insta12", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874323/C01_3_o4ryxr.jpg" },
-      { id: "insta13", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874323/C01_1_oe64y8.jpg" },
-      { id: "insta14", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874323/WhatsApp_Image_2024-01-29_at_21.27.48_bmmkyu.jpg" },
-      { id: "insta15", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874323/WhatsApp_Image_2024-01-29_at_21.21.57_nk1oyf.jpg" },
+      { id: "insta1", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777033575/SMP-22_bwiboa.jpg" },
+      { id: "insta2", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777033569/SMP-21_xy2sgo.jpg" },
+      { id: "insta3", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777033576/SMP-20_gpnpmc.jpg" },
+      { id: "insta4", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777033565/SMP-19_vlsyib.jpg" },
+      { id: "insta5", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777033563/SMP-18_dnink4.jpg" },
+      { id: "insta6", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777033573/SMP-17_xjkdbi.jpg" },
+      { id: "insta7", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777033567/SMP-16_otau1q.jpg" },
+      { id: "insta8", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777033561/SMP-15_bsoqwa.jpg" },
+      { id: "insta9", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777033559/SMP-14_eiykvs.jpg" },
+      { id: "insta10", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777033556/SMP-13_sofs1h.jpg" },
+      { id: "insta11", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777033570/SMP-12_fxepty.jpg" },
+      { id: "insta12", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777033555/SMP-11_jndaz7.jpg" },
+      { id: "insta13", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777033552/SMP-10_wnalbq.jpg" },
+      { id: "insta14", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777033545/SMP-09_ilajkc.jpg" },
+      { id: "insta15", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777033557/SMP-08_lxn47m.jpg" },
+      { id: "insta16", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777033544/SMP-07_wv26cr.jpg" },
+      { id: "insta17", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777033542/SMP-06_mmwmcu.jpg" },
+      { id: "insta18", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777033541/SMP-05_tbjrcw.jpg" },
+      { id: "insta19", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777033525/SMP-04_dcaezb.jpg" },
+      { id: "insta20", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777033527/SMP-03_ountbz.jpg" },
+      { id: "insta21", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777033524/SMP-02_xr5kws.jpg" },
+      { id: "insta22", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777033524/SMP-01_uyv3dl.jpg" },
       // { id: "insta16", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772874323/WhatsApp_Image_2024-01-29_at_21.27.48_2_bmmkyu.jpg" },
     ],
     "Packaging": [
@@ -116,12 +131,21 @@ export const portfolioData: any = {
       // { id: "brochure3", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1772873794/brochure7_eblq9n.jpg" }
     ],
 
+    "ID Cards":[
+      { id: "IDcards1", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777031500/ID_1.jpg_z8utsd.jpg" },
+      { id: "IDcards2", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777031499/ID_3.jpg_gm6cz4.jpg" },
+      { id: "IDcards3", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777031500/ID2.jpg_pdkaql.jpg" },
+      { id: "IDcards4", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777032086/Screenshot_2026-04-24_173044_rehz6o.png" },
+      { id: "IDcards5", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777031498/ID_5.jpg_eglyur.jpg" },
+       { id: "IDcards6", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777032200/ID_qyvkum.jpg" },
+
+      
+    ],
+
     "Invitation Cards": [
        { id: "Invitaion1", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776958453/Inv_-4.jpg_ax2yci.jpg" },
       { id: "Invitaion2", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776958454/Inv_-6.jpg_feqyht.jpg" },
       { id: "Invitaion3", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776958541/Inv_-8.jpg_pem34p.jpg" },
-      
-      
       { id: "Invitaion4", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776958540/Inv_-9.jpg_r5hdj2.jpg" },
       { id: "Invitaion5", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776958551/Rectangle_1.jpg_jguhbo.jpg" },
       { id: "Invitaion6", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1776958553/Inv_-10.jpg_ypmy6k.jpg" },
@@ -134,6 +158,8 @@ export const portfolioData: any = {
     ],
     "Merchandise": [
        /* Add your merchandise assets here */
+       { id: "March1", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777032615/Use_this_Logo_202604031711_abxrf2.jpg"  },
+      { id: "March2", type: "image", src: "https://res.cloudinary.com/dep3ixqlu/image/upload/v1777030211/SS2.jpg_l8xv6f.jpg" },
     ]
   },
 
