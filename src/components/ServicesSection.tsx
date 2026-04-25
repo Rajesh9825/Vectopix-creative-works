@@ -175,9 +175,9 @@ const ServiceCard = ({ service, index }: { service: any; index: number }) => {
           )}
         </AnimatePresence>
 
-        <button onClick={() => navigate(`/services/${service.slug}`)} className="mt-auto pt-4 inline-flex items-center gap-2 text-sm font-black text-brand-blue hover:text-brand-dark transition-colors uppercase tracking-widest group/btn">
+        {/* <button onClick={() => navigate(`/services/${service.slug}`)} className="mt-auto pt-4 inline-flex items-center gap-2 text-sm font-black text-brand-blue hover:text-brand-dark transition-colors uppercase tracking-widest group/btn">
           Explore Category <ArrowUpRight size={16} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
-        </button>
+        </button> */}
       </div>
     </motion.div>
   );
