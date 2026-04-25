@@ -160,7 +160,7 @@ const ContactSection = () => {
                     value={formData.subject} 
                     onChange={(e) => setFormData({...formData, subject: e.target.value})} 
                     className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-brand-yellow focus:outline-none transition-all placeholder:text-white/20 pr-12" 
-                    placeholder="e.g. 3D Logo Animation" 
+                    placeholder="e.g. Logo Animation" 
                   />
                   <PencilLine className="absolute right-4 top-1/2 -translate-y-1/2 text-white/20" size={18} />
                 </div>
