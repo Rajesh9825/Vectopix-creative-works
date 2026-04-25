@@ -146,42 +146,40 @@ const Testimonials = () => {
         <div className="absolute inset-y-0 right-0 w-24 md:w-48 bg-gradient-to-l from-gray-50 via-gray-50/80 to-transparent z-30 pointer-events-none" />
       </div>
 
-      {/* INTEGRATED PAGE CONTENT (No Card Shape) */}
+      {/* FIXED ALIGNMENT FOR MOBILE */}
       <div className="mt-20 md:mt-28 border-t border-brand-dark/5 bg-white/50 backdrop-blur-sm relative z-10">
-        <div className="container mx-auto px-6 py-12">
+        <div className="container mx-auto px-6 py-12 md:py-16">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} 
-                className="flex flex-wrap justify-center items-center gap-y-12 gap-x-8 md:gap-x-16"
+                className="grid grid-cols-1 md:flex md:flex-row justify-center items-start md:items-center gap-y-10 md:gap-x-16"
             >
-
-                {/* Stat 2 */}
-                <div className="flex items-center gap-5 text-left min-w-[240px]">
-                    <div className="w-14 h-14 rounded-2xl bg-brand-yellow/10 flex items-center justify-center text-brand-yellow shadow-inner"><Zap size={26} /></div>
+                {/* Stat 1: Creative Partner */}
+                <div className="flex items-center gap-5 text-left w-full md:w-auto">
+                    <div className="w-14 h-14 shrink-0 rounded-2xl bg-brand-yellow/10 flex items-center justify-center text-brand-yellow shadow-inner"><Zap size={26} /></div>
                     <div>
                         <p className="text-lg font-black uppercase tracking-widest text-brand-dark leading-tight">Creative Partner</p>
-                        <p className="text-[11px] text-brand-dark/50 font-bold uppercase tracking-wider mt-1">Across Multiple <br /> Industries</p>
+                        <p className="text-[11px] text-brand-dark/50 font-bold uppercase tracking-wider mt-1">Across Multiple <br className="hidden md:block" /> Industries</p>
                     </div>
                 </div>
 
                 <div className="hidden lg:block w-px h-16 bg-brand-dark/10" />
 
-                {/* Stat 1 */}
-                <div className="flex items-center gap-5 text-left min-w-[240px]">
-                    <div className="w-14 h-14 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue shadow-inner"><Globe2 size={26} /></div>
+                {/* Stat 2: Global Client Base */}
+                <div className="flex items-center gap-5 text-left w-full md:w-auto">
+                    <div className="w-14 h-14 shrink-0 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue shadow-inner"><Globe2 size={26} /></div>
                     <div>
                         <p className="text-lg font-black uppercase tracking-widest text-brand-dark leading-tight">Global Client Base</p>
-                        <p className="text-[11px] text-brand-dark/50 font-bold uppercase tracking-wider mt-1">Delivering Excellence <br /> Worldwide</p>
+                        <p className="text-[11px] text-brand-dark/50 font-bold uppercase tracking-wider mt-1">Delivering Excellence <br className="hidden md:block" /> Worldwide</p>
                     </div>
                 </div>
 
                 <div className="hidden lg:block w-px h-16 bg-brand-dark/10" />
 
-                
-                {/* Stat 3 */}
-                <div className="flex items-center gap-5 text-left min-w-[240px]">
-                    <div className="w-14 h-14 rounded-2xl bg-green-500/10 flex items-center justify-center text-green-600 shadow-inner"><ShieldCheck size={26} /></div>
+                {/* Stat 3: Verified Impact */}
+                <div className="flex items-center gap-5 text-left w-full md:w-auto">
+                    <div className="w-14 h-14 shrink-0 rounded-2xl bg-green-500/10 flex items-center justify-center text-green-600 shadow-inner"><ShieldCheck size={26} /></div>
                     <div>
                         <p className="text-lg font-black uppercase tracking-widest text-brand-dark leading-tight">Verified Impact</p>
-                        <p className="text-[11px] text-brand-dark/50 font-bold uppercase tracking-wider mt-1">100% Client <br /> Satisfaction</p>
+                        <p className="text-[11px] text-brand-dark/50 font-bold uppercase tracking-wider mt-1">100% Client <br className="hidden md:block" /> Satisfaction</p>
                     </div>
                 </div>
             </motion.div>
