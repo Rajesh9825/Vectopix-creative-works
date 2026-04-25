@@ -5,10 +5,12 @@ import { Quote, Star, ArrowRight, X, ChevronLeft, ChevronRight, Sparkles, Globe2
 const testimonials = [
   { id: 1, name: "Nitin Vaidhya Productions", role: "Production House", content: "Vectopix Creative Works has been our trusted creative partner since 2021. From concept poster design and graphic design to title sequences, opening and closing credits, title animations, and subtitle spotting — they have handled it all across 16+ films with remarkable consistency and cinematic precision. Their deep understanding of film aesthetics and attention to detail makes every project feel elevated. They are an indispensable part of our production process.", rating: 5 },
   { id: 2, name: "Satish Gejage", role: "Actor & Producer", content: "Vectopix Creative Works has been an exceptional creative partner for my film projects. From striking poster designs and title sequences to endscrolls and motion graphics — their work reflects a true understanding of cinematic storytelling. The quality and creativity they bring to every frame is remarkable. We are still collaborating on more exciting projects together, and I look forward to every bit of it!", rating: 5 },
-  { id: 3, name: "Sneha", role: "Financial Adviser", content: "Vectopix Creative Works did an excellent job designing our social media ad creatives and visiting cards. The designs were sharp, professional, and perfectly suited for our financial brand. Their printing quality was equally impressive. A one-stop creative solution we highly recommend!", rating: 5 },
-  { id: 4, name: "Ganesh Kurapati", role: "GK Creatives", content: "We started with just a logo, and soon discovered that Vectopix Creative Works offers so much more. From wedding and pre-wedding video editing to invitation card designs and motion invitation videos for our clients — they handle it all with exceptional quality and consistency. They are not just a service provider, they are a creative backbone we truly depend on.", rating: 5 },
-  { id: 5, name: "Prathamesh Shelke", role: "Lightline Design Studio", content: "Vectopix Creative Works designed our logo, brochure, and company profile with exceptional attention to detail. The designs perfectly reflect the elegance our brand stands for. Every client who sees our profile is impressed — truly a creative partner you can trust.", rating: 5 }
-];
+  { id: 3, name: "Pratik Audi", role: "Northern Imagin Pictures", content: "Having worked in post-production for years, I have high standards when it comes to creative work — and Vectopix Creative Works has never fallen short. I have collaborated with them on numerous projects including endscrolls, title sequences, and more. When I decided to launch Northern Imagin Pictures, there was no second thought about who would create our logo, logo animation, and showreel. They understood the vision behind my production house and delivered with precision and creativity. A team that truly knows the craft inside out.", rating: 5 },
+  { id: 4, name: "Sneha", role: "Financial Adviser", content: "Vectopix Creative Works did an excellent job designing our social media ad creatives and visiting cards. The designs were sharp, professional, and perfectly suited for our financial brand. Their printing quality was equally impressive. A one-stop creative solution we highly recommend!", rating: 5 },
+  { id: 5, name: "Ganesh Kurapati", role: "GK Creatives", content: "We started with just a logo, and soon discovered that Vectopix Creative Works offers so much more. From wedding and pre-wedding video editing to invitation card designs and motion invitation videos for our clients — they handle it all with exceptional quality and consistency. They are not just a service provider, they are a creative backbone we truly depend on.", rating: 5 },
+  { id: 6, name: "Prathamesh Shelke", role: "Lightline Design Studio", content: "Vectopix Creative Works designed our logo, brochure, and company profile with exceptional attention to detail. The designs perfectly reflect the elegance our brand stands for. Every client who sees our profile is impressed — truly a creative partner you can trust.", rating: 5 },
+  { id: 7, name: "Kaustubh", role: "KS Enterprise", content: "Vectopix Creative Works designed our logo and visiting cards beautifully. The designs are clean, professional, and perfectly represent our business. A great team to work with!", rating: 5 }
+  ];
 
 const TestimonialViewer = ({ activeId, onClose }: { activeId: number | null, onClose: () => void }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -150,16 +152,6 @@ const Testimonials = () => {
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} 
                 className="flex flex-wrap justify-center items-center gap-y-12 gap-x-8 md:gap-x-16"
             >
-                {/* Stat 1 */}
-                <div className="flex items-center gap-5 text-left min-w-[240px]">
-                    <div className="w-14 h-14 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue shadow-inner"><Globe2 size={26} /></div>
-                    <div>
-                        <p className="text-lg font-black uppercase tracking-widest text-brand-dark leading-tight">Global Client Base</p>
-                        <p className="text-[11px] text-brand-dark/50 font-bold uppercase tracking-wider mt-1">Delivering Excellence <br /> Worldwide</p>
-                    </div>
-                </div>
-
-                <div className="hidden lg:block w-px h-16 bg-brand-dark/10" />
 
                 {/* Stat 2 */}
                 <div className="flex items-center gap-5 text-left min-w-[240px]">
@@ -172,6 +164,18 @@ const Testimonials = () => {
 
                 <div className="hidden lg:block w-px h-16 bg-brand-dark/10" />
 
+                {/* Stat 1 */}
+                <div className="flex items-center gap-5 text-left min-w-[240px]">
+                    <div className="w-14 h-14 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue shadow-inner"><Globe2 size={26} /></div>
+                    <div>
+                        <p className="text-lg font-black uppercase tracking-widest text-brand-dark leading-tight">Global Client Base</p>
+                        <p className="text-[11px] text-brand-dark/50 font-bold uppercase tracking-wider mt-1">Delivering Excellence <br /> Worldwide</p>
+                    </div>
+                </div>
+
+                <div className="hidden lg:block w-px h-16 bg-brand-dark/10" />
+
+                
                 {/* Stat 3 */}
                 <div className="flex items-center gap-5 text-left min-w-[240px]">
                     <div className="w-14 h-14 rounded-2xl bg-green-500/10 flex items-center justify-center text-green-600 shadow-inner"><ShieldCheck size={26} /></div>
