@@ -1,129 +1,138 @@
+import { motion } from "framer-motion";
+import { useNavigate, useLocation } from "react-router-dom";
 import logoFooter from "@/assets/logo-footer.png";
-import { Instagram, Linkedin, Facebook, Twitter } from "lucide-react";
-
+import { 
+  Instagram, Linkedin, Facebook, Twitter, 
+  ArrowUpRight, Mail, Phone, MapPin 
+} from "lucide-react";
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const scrollTo = (href: string) => {
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    // If navigating to a real route (like Blog)
+    if (href.startsWith('/')) {
+      navigate(href);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        const el = document.querySelector(href);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+      return;
+    }
+
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   const socials = [
-    {
-      icon: Instagram,
-      link: "https://www.instagram.com/vectopixcreatives"
-    },
-    {
-      icon: Linkedin,
-      link: "https://www.linkedin.com/company/vectopix-creatives/about/?viewAsMember=true"
-    },
-    {
-      icon: Facebook,
-      link: "https://www.facebook.com/profile.php?id=61588492622232"
-    },
-    {
-      icon: Twitter,
-      link: "https://twitter.com/vectopix"
-    }
+    { icon: Instagram, link: "https://www.instagram.com/vectopixcreatives" },
+    { icon: Linkedin, link: "https://www.linkedin.com/company/vectopix-creatives/about/?viewAsMember=true" },
+    { icon: Facebook, link: "https://www.facebook.com/profile.php?id=61588492622232" },
+    { icon: Twitter, link: "https://twitter.com/vectopix" }
   ];
 
   return (
-    <footer className="bg-brand-dark py-[clamp(2.5rem,8vw,4.5rem)]">
-      <div className="container mx-auto px-4 sm:px-6 md:px-8">
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12 mb-8 sm:mb-12">
-
-          {/* Quick Links */}
-
-          <div>
-            <h4 className="font-semibold text-primary mb-3 sm:mb-4 text-sm uppercase tracking-widest">
-              Quick Links
-            </h4>
-
-            <div className="flex flex-col gap-2">
-
-              {["Home", "About", "Services", "Portfolio", "Contact"].map((l) => (
-
-                <button
-                  key={l}
-                  onClick={() => scrollTo(`#${l.toLowerCase()}`)}
-                  className="text-left text-sm text-secondary-foreground/60 hover:text-primary transition-colors"
-                >
-                  {l}
-                </button>
-
-              ))}
-
-            </div>
-          </div>
-
-          {/* Contact */}
-
-          <div>
-            <h4 className="font-semibold text-primary mb-3 sm:mb-4 text-sm uppercase tracking-widest">
-              Contact
-            </h4>
-
-            <div className="flex flex-col gap-2 text-sm text-secondary-foreground/60">
-              <p>+91 70384 73369</p>
-              <p>vectopixcreatives@gmail.com</p>
-              <p>Pune, Maharashtra</p>
-            </div>
-
-            {/* Social Icons */}
-
-            <div className="flex gap-3 mt-4">
-
-              {socials.map((social, i) => {
-
-                const Icon = social.icon;
-
-                return (
-                  <a
-                    key={i}
-                    href={social.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-lg flex items-center justify-center transition-colors bg-secondary-foreground/10 text-secondary-foreground/60 hover:bg-primary hover:text-primary-foreground"
-                  >
-                    <Icon className="w-4 h-4" />
-                  </a>
-                );
-
-              })}
-
-            </div>
-          </div>
-
-          {/* Logo & tagline */}
-
-          <div className="sm:col-span-2 md:col-span-1 flex flex-col items-start md:items-end text-left md:text-right">
-
-            <img
-              src={logoFooter}
-              alt="VectoPix"
-              className="h-12 sm:h-14 w-auto mb-4"
-            />
-
-            <p className="text-sm leading-relaxed text-secondary-foreground/60 max-w-xs">
-              Professional graphic design, motion graphics & video editing
-              studio crafting impactful brand experiences.
+    <footer className="bg-brand-dark pt-24 pb-12 overflow-hidden border-t border-white/5">
+      <div className="container mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-20">
+          
+          {/* 1. BRAND PILLAR */}
+          <div className="lg:col-span-4 space-y-8">
+            <button onClick={() => scrollTo("#home")}>
+              <img src={logoFooter} alt="VectoPix" className="h-14 w-auto grayscale brightness-200" />
+            </button>
+            <p className="text-xl font-medium text-white/50 leading-relaxed max-w-xs">
+              Crafting <span className="text-white">iconic</span> visual identities and cinematic motion for forward-thinking brands.
             </p>
-
+            <div className="flex gap-4">
+              {socials.map((social, i) => (
+                <a
+                  key={i}
+                  href={social.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white/40 hover:bg-brand-yellow hover:text-brand-dark hover:border-brand-yellow transition-all duration-300"
+                >
+                  <social.icon size={20} />
+                </a>
+              ))}
+            </div>
           </div>
 
+          {/* 2. NAVIGATION */}
+          <div className="lg:col-span-4 grid grid-cols-2 gap-8">
+            <div>
+              <h4 className="text-xs font-black uppercase tracking-[0.2em] text-brand-yellow mb-8">Studio</h4>
+              <ul className="space-y-4">
+                {/* Added Blog to the map array below */}
+                {["Home", "About", "Services", "Portfolio", "Blog", "Contact"].map((l) => (
+                  <li key={l}>
+                    <button
+                      onClick={() => scrollTo(l === "Blog" ? "/blog" : `#${l.toLowerCase()}`)}
+                      className="text-white/40 hover:text-white font-bold text-sm transition-colors flex items-center gap-2 group text-left"
+                    >
+                      {l.toUpperCase()}
+                      <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-all -translate-y-1" />
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-xs font-black uppercase tracking-[0.2em] text-brand-yellow mb-8">Niches</h4>
+              <ul className="space-y-4 text-white/40 font-bold text-sm">
+                <li onClick={() => navigate('/services/branding-graphic-design')} className="hover:text-white transition-colors cursor-pointer uppercase">Branding</li>
+                <li onClick={() => navigate('/services/motion-graphics-animation')} className="hover:text-white transition-colors cursor-pointer uppercase">Motion</li>
+                <li onClick={() => navigate('/services/print-merchandise-production')} className="hover:text-white transition-colors cursor-pointer uppercase">Print</li>
+                <li onClick={() => navigate('/services/digital-marketing-strategy')} className="hover:text-white transition-colors cursor-pointer uppercase">Ad Design</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* 3. CONTACT CARD */}
+          <div className="lg:col-span-4 bg-white/[0.03] border border-white/10 rounded-[2.5rem] p-10 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-brand-yellow/10 blur-3xl rounded-full -mr-16 -mt-16 group-hover:bg-brand-yellow/20 transition-all" />
+            <h4 className="text-xs font-black uppercase tracking-[0.2em] text-white mb-8">Start a project</h4>
+            <div className="space-y-6">
+              <a href="mailto:vectopixcreatives@gmail.com" className="flex items-center gap-4 text-white/60 hover:text-brand-yellow transition-colors group/link">
+                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover/link:bg-brand-yellow/20">
+                  <Mail size={18} />
+                </div>
+                <span className="text-sm font-bold tracking-tight">vectopixcreatives@gmail.com</span>
+              </a>
+              <a href="tel:+917038473369" className="flex items-center gap-4 text-white/60 hover:text-brand-yellow transition-colors group/link">
+                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover/link:bg-brand-yellow/20">
+                  <Phone size={18} />
+                </div>
+                <span className="text-sm font-bold tracking-tight">+91 70384 73369</span>
+              </a>
+              <div className="flex items-center gap-4 text-white/60">
+                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                  <MapPin size={18} />
+                </div>
+                <span className="text-sm font-bold tracking-tight">Pune, MH, India</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Bottom */}
-
-        <div className="border-t border-secondary-foreground/10 pt-6 sm:pt-8">
-
-          <p className="text-center text-xs sm:text-sm text-secondary-foreground/40">
-            © {new Date().getFullYear()} VectoPix Creative Works. All rights reserved.
+        {/* BOTTOM BAR */}
+        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/20">
+            © {new Date().getFullYear()} VectoPix Creative Works • Designed for Impact
           </p>
-
+          <div className="flex gap-8 text-[10px] font-black uppercase tracking-[0.3em] text-white/20">
+            <a href="#" className="hover:text-brand-yellow transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-brand-yellow transition-colors">Terms of Service</a>
+          </div>
         </div>
-
       </div>
     </footer>
   );
