@@ -32,12 +32,10 @@ const TestimonialViewer = ({ activeId, onClose }: { activeId: number | null, onC
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
           className="fixed inset-0 z-[600] flex items-center justify-center bg-brand-dark/95 backdrop-blur-2xl p-4 overflow-hidden"
         >
-          {/* Close Button */}
           <button onClick={onClose} className="absolute top-6 right-6 z-[750] p-3 rounded-full bg-white/10 text-white hover:bg-brand-yellow hover:text-brand-dark transition-all active:scale-90 shadow-2xl">
             <X size={24} />
           </button>
 
-          {/* MOBILE & DESKTOP SIDE NAVIGATION (Low Opacity) */}
           <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-2 md:px-10 z-[700] pointer-events-none w-full">
             <button 
               onClick={prev} 
@@ -54,7 +52,6 @@ const TestimonialViewer = ({ activeId, onClose }: { activeId: number | null, onC
           </div>
 
           <div className="relative w-full max-w-4xl h-full flex flex-col items-center justify-center z-[650]">
-            
             <div className="relative w-full flex items-center justify-center h-[500px] md:h-[600px]">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -66,17 +63,12 @@ const TestimonialViewer = ({ activeId, onClose }: { activeId: number | null, onC
                   className="absolute w-full max-w-[90vw] md:max-w-2xl bg-white rounded-[2.5rem] md:rounded-[4rem] p-8 md:p-16 shadow-[0_40px_80px_rgba(0,0,0,0.4)] flex flex-col items-center text-center overflow-hidden"
                 >
                     <Quote className="text-brand-blue/10 mb-6 md:mb-8" size={60} />
-                    
                     <div className="flex gap-1 mb-6">
                         {[...Array(current.rating)].map((_, i) => <Star key={i} size={18} className="fill-brand-yellow text-brand-yellow" />)}
                     </div>
-
                     <div className="overflow-y-auto max-h-[250px] md:max-h-[300px] custom-scrollbar pr-2 mb-8 w-full">
-                        <p className="text-brand-dark font-bold text-lg md:text-3xl leading-snug italic">
-                            "{current.content}"
-                        </p>
+                        <p className="text-brand-dark font-bold text-lg md:text-3xl leading-snug italic">"{current.content}"</p>
                     </div>
-
                     <div className="mt-auto border-t border-brand-dark/5 pt-6 w-full">
                         <h4 className="font-black text-brand-dark uppercase tracking-tight text-lg md:text-2xl truncate">{current.name}</h4>
                         <p className="text-xs md:text-sm font-black text-brand-blue uppercase tracking-[0.3em]">{current.role}</p>
@@ -84,14 +76,9 @@ const TestimonialViewer = ({ activeId, onClose }: { activeId: number | null, onC
                 </motion.div>
               </AnimatePresence>
             </div>
-
-            {/* PROGRESS INDICATOR */}
             <div className="flex gap-2 mt-4 md:mt-8">
                 {testimonials.map((_, i) => (
-                    <div 
-                        key={i} 
-                        className={`h-1 rounded-full transition-all duration-500 ${currentIndex === i ? 'w-8 md:w-10 bg-brand-yellow' : 'w-1.5 md:w-2 bg-white/20'}`}
-                    />
+                    <div key={i} className={`h-1 rounded-full transition-all duration-500 ${currentIndex === i ? 'w-8 md:w-10 bg-brand-yellow' : 'w-1.5 md:w-2 bg-white/20'}`} />
                 ))}
             </div>
           </div>
@@ -114,11 +101,21 @@ const TestimonialCard = ({ item, onOpen }: { item: typeof testimonials[0], onOpe
         <Quote className="text-brand-blue/5" size={40} />
       </div>
       <div className="relative h-[160px] overflow-hidden">
-        <p className="text-brand-dark/60 font-bold leading-relaxed italic text-sm md:text-lg line-clamp-6">
-            "{item.content}"
-        </p>
+        <p className="text-brand-dark/60 font-bold leading-relaxed italic text-sm md:text-lg line-clamp-6">"{item.content}"</p>
         <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white via-white/80 to-transparent z-10" />
       </div>
+    </div>
+
+    {/* MOBILE CTA: Sliding "Read Full Review" Overlay */}
+    <div className="absolute inset-0 bg-brand-dark/95 flex flex-col items-center justify-center p-8 text-center translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-30 lg:hidden">
+        <Quote className="text-brand-yellow/20 mb-4" size={40} />
+        <p className="text-white text-sm font-bold mb-6 italic line-clamp-3">"{item.content}"</p>
+        <button 
+            onClick={() => onOpen(item.id)}
+            className="px-6 py-3 bg-brand-yellow text-brand-dark rounded-full font-black text-xs uppercase tracking-widest flex items-center gap-2 shadow-xl active:scale-95"
+        >
+            Read Full Review <ArrowRight size={14} />
+        </button>
     </div>
 
     <div className="flex items-center gap-4 border-t border-brand-dark/5 pt-6 relative z-20 bg-white">
@@ -129,9 +126,11 @@ const TestimonialCard = ({ item, onOpen }: { item: typeof testimonials[0], onOpe
         <h4 className="font-black text-brand-dark uppercase tracking-tight text-xs md:text-base truncate">{item.name}</h4>
         <p className="text-[8px] md:text-[10px] font-black text-brand-blue uppercase tracking-[0.2em] truncate">{item.role}</p>
       </div>
+      
+      {/* DESKTOP ARROW: Only shows on larger screens */}
       <button 
         onClick={() => onOpen(item.id)}
-        className="opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 w-12 h-12 rounded-full bg-brand-yellow flex items-center justify-center shadow-lg"
+        className="hidden lg:flex opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 w-12 h-12 rounded-full bg-brand-yellow items-center justify-center shadow-lg"
       >
         <ArrowRight size={22} className="text-brand-dark" />
       </button>
