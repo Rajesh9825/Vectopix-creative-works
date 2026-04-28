@@ -30,6 +30,9 @@ import DigitalAdvertising from "./pages/services/DigitalMarketingStrategy.tsx";
 // import WhatsAppFAB from "./components/WhatsAppFAB.tsx";
 import VectoAI from "./components/VectoAI";
 
+// Preloader using for initial load animation and asset tracking
+// import Preloader from "@/components/Preloader";
+
 
 const queryClient = new QueryClient();
 
@@ -39,6 +42,8 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        {/* Preloader shows on initial load */}
+        {/* <Preloader /> */}
         {/* ScrollToTop ensures the page starts at 0,0 on route change */}
         <ScrollToTop />
         
