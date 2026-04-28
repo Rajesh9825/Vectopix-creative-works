@@ -16,9 +16,7 @@ const mainCategories = [
 const subCategories: Record<string, string[]> = {
   "Design & Print": ["Logo Design", "Visiting Cards", "Flyers", "Brochures", "Branding", "Social Media","Packaging","Posters","ID Cards","Invitation Cards", "Merchandise"],
   "Motion & Ads": ["Logo Animation",  "Social Media & Ads", "Invitations"],
-    // "Motion & Ads": ["Logo Animation",  "Social Media & Ads", "Invitations", "Explainer Videos", "2D Animation", "3D Animation"],
   "Video Production": ["Film Promotions", "Brand Promotions", "Promotional Videos"]
-  // "Video Production": ["Film Promotions", "Brand Promotions", "Promotional Videos". Corporate Films", "Social Media Campaigns", "Product Videos"]
 };
 
 const getYoutubeId = (url: string) => {
@@ -33,13 +31,14 @@ const PortfolioSection = () => {
   const [subTab, setSubTab] = useState(subCategories["Design & Print"][0]);
   const [index, setIndex] = useState(-1);
   const [activeVideo, setActiveVideo] = useState<{url: string, isVertical: boolean} | null>(null);
-  
   const [visibleCount, setVisibleCount] = useState(6);
 
   const currentCat = mainCategories.find(c => c.name === mainTab) || mainCategories[0];
   const allItems = portfolioData?.[mainTab]?.[subTab] || [];
-  
   const visibleItems = allItems.slice(0, visibleCount);
+
+  // FIXED: Prepare slides by filtering only images to ensure Lightbox indexing matches the slides array
+  const imageSlides = visibleItems.filter((i: any) => i.type === 'image').map((i: any) => ({ src: i.src }));
 
   const handleMainTabChange = (tab: string) => {
     setMainTab(tab);
@@ -101,17 +100,21 @@ const PortfolioSection = () => {
 
         <div className="flex flex-wrap justify-center gap-6 max-w-7xl mx-auto">
           <AnimatePresence mode="popLayout">
-            {visibleItems.map((item: any, idx: number) => {
-               const isVertical = item.id.toLowerCase().includes('reel') || 
-                                  item.id.toLowerCase().includes('inv') || 
+            {visibleItems.map((item: any) => {
+               const isVertical = item.id?.toLowerCase().includes('reel') || 
+                                  item.id?.toLowerCase().includes('inv') || 
                                   item.url?.includes('shorts');
+               
+               // FIXED: Calculate the correct index within the image-only array for the Lightbox
+               const imgIndex = item.type === 'image' ? imageSlides.findIndex(slide => slide.src === item.src) : -1;
+
                return (
                 <PortfolioItem 
                   key={item.id} 
                   item={item} 
                   isVertical={isVertical}
                   currentCat={currentCat} 
-                  onImageClick={() => setIndex(idx)}
+                  onImageClick={() => setIndex(imgIndex)}
                   onVideoClick={() => setActiveVideo({url: item.url, isVertical})}
                 />
               )
@@ -133,7 +136,12 @@ const PortfolioSection = () => {
           </div>
         )}
 
-        <Lightbox open={index >= 0} index={index} close={() => setIndex(-1)} slides={visibleItems.filter((i:any) => i.type === 'image').map((i:any) => ({ src: i.src }))} />
+        <Lightbox 
+          open={index >= 0} 
+          index={index} 
+          close={() => setIndex(-1)} 
+          slides={imageSlides} 
+        />
         
         <AnimatePresence>
           {activeVideo && (
@@ -189,8 +197,7 @@ const PortfolioItem = forwardRef(({ item, isVertical, currentCat, onImageClick, 
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={item.type === 'image' ? onImageClick : onVideoClick}
-      // Added transition for border-radius: Starts sharp (rounded-none), ends curved (rounded-[2rem])
-      className={`group relative bg-brand-dark overflow-hidden shadow-sm cursor-pointer w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] transition-all duration-500 ease-in-out ${
+      className={`group relative bg-brand-dark overflow-hidden shadow-sm cursor-pointer w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] transition-all duration-500 ease-in-out ${
         isHovered ? "rounded-[2.5rem]" : "rounded-none"
       } ${
         item.type === 'image' ? 'aspect-square' : isVertical ? 'aspect-[9/16]' : 'aspect-video'
@@ -200,18 +207,18 @@ const PortfolioItem = forwardRef(({ item, isVertical, currentCat, onImageClick, 
         <img 
             src={getThumbnail()} 
             className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${isHovered && item.type === 'video' ? 'opacity-20 scale-110' : 'opacity-100'}`} 
-            alt="VectoPix Work"
+            alt={`${item.title || 'Creative Project'} by VectoPix`}
         />
 
         {item.type === 'video' && (
           <>
             {isHovered ? (
-              <div className="absolute inset-0 w-full h-full pointer-events-none">
+              <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
                 <iframe 
                   src={isCloudinary 
                     ? `${item.url}&autoplay=true&muted=true` 
-                    : `https://www.youtube.com/embed/${ytId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${ytId}&modestbranding=1`} 
-                  className="w-full h-full border-0 scale-[1.05]" 
+                    : `https://www.youtube.com/embed/${ytId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${ytId}&modestbranding=1&iv_load_policy=3`} 
+                  className="w-full h-full border-0 scale-[1.2] transform origin-center" 
                 />
               </div>
             ) : (
@@ -221,7 +228,6 @@ const PortfolioItem = forwardRef(({ item, isVertical, currentCat, onImageClick, 
             )}
           </>
         )}
-        {/* Border overlay now also follows the curvature logic */}
         <div className={`absolute inset-0 border-[0px] group-hover:border-[10px] border-white/5 transition-all duration-500 z-20 pointer-events-none ${isHovered ? "rounded-[2.5rem]" : "rounded-none"}`} />
       </div>
     </motion.div>
