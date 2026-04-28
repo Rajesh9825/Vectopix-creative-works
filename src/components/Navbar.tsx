@@ -70,7 +70,7 @@ const Navbar = () => {
         
         {/* LOGO */}
         <button onClick={() => scrollTo("#home")} className="z-[120] flex items-center gap-2">
-          <img src={logoWhite} alt="VectoPix" className="h-8 sm:h-10 w-auto" />
+          <img src={logoWhite} alt="VectoPix Creative Works - Official Logo" className="h-8 sm:h-10 w-auto" />
         </button>
 
         {/* DESKTOP NAV */}
