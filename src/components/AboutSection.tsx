@@ -1,6 +1,7 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
-import { Palette, Clapperboard, Sparkles, ArrowUpRight, CheckCircle2, ChevronDown } from "lucide-react";
+import { Palette, Clapperboard, Sparkles, ArrowUpRight, CheckCircle2, ChevronDown, ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom"; // Assumes you are using react-router-dom
 
 const values = [
   { 
@@ -37,7 +38,6 @@ const AboutSection = () => {
 
   return (
     <section id="about" className="py-24 md:py-32 bg-background relative overflow-hidden" ref={ref}>
-      {/* Subtle Background Branding Accent */}
       <div className="absolute -left-20 top-1/2 -translate-y-1/2 w-64 h-64 bg-brand-yellow/5 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
@@ -68,14 +68,15 @@ const AboutSection = () => {
               </p>
             </div>
 
-            {/* INTERACTIVE BUTTON: Learn More About Our Process */}
-            <div className="relative">
+            {/* BUTTON GROUP: Process Toggle & Full About Page Link */}
+            <div className="relative flex flex-wrap items-center gap-8">
+              {/* Toggle Process Button */}
               <motion.button 
                 onClick={() => setShowProcess(!showProcess)}
                 whileHover={{ x: 5 }}
                 className="flex items-center gap-3 font-black text-brand-dark hover:text-brand-blue transition-all group"
               >
-                LEARN MORE ABOUT OUR PROCESS 
+                OUR PROCESS 
                 <motion.div
                   animate={{ rotate: showProcess ? 180 : 0 }}
                   className="w-10 h-10 rounded-full bg-brand-yellow flex items-center justify-center group-hover:scale-110 transition-transform"
@@ -83,6 +84,19 @@ const AboutSection = () => {
                    {showProcess ? <ChevronDown size={20} className="text-brand-dark" /> : <ArrowUpRight size={20} className="text-brand-dark transition-transform group-hover:rotate-45" />}
                 </motion.div>
               </motion.button>
+
+              {/* NEW: Link to separate About Page */}
+              <Link to="/about">
+                <motion.div
+                  whileHover={{ x: 5 }}
+                  className="flex items-center gap-3 font-black text-brand-dark/40 hover:text-brand-blue transition-all group"
+                >
+                  WHO WE ARE
+                  <div className="w-10 h-10 rounded-full bg-brand-dark/5 flex items-center justify-center group-hover:bg-brand-blue group-hover:text-white transition-all">
+                    <ExternalLink size={18} />
+                  </div>
+                </motion.div>
+              </Link>
 
               {/* PROCESS REVEAL CONTENT */}
               <AnimatePresence>
@@ -92,7 +106,7 @@ const AboutSection = () => {
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.5, ease: "easeInOut" }}
-                    className="overflow-hidden mt-8"
+                    className="overflow-hidden mt-8 w-full"
                   >
                     <div className="grid sm:grid-cols-2 gap-4 bg-brand-dark/5 p-6 rounded-3xl border border-brand-dark/5">
                       {processSteps.map((step, idx) => (
