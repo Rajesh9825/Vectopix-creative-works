@@ -18,6 +18,9 @@ import NotFound from "./pages/NotFound";
 import Blog from "./pages/Blog";
 import BlogDetail from "./pages/BlogDetail";
 
+// About Page
+import AboutPage from "./pages/AboutPage";
+
 // Service Pages
 import BrandingGraphicDesign from "./pages/services/BrandingGraphicDesign.tsx";
 import MotionAnimation from "./pages/services/MotionAnimation.tsx";
@@ -25,6 +28,7 @@ import CinematicPost from "./pages/services/CinematicPost.tsx";
 import CommercialVideo from "./pages/services/CommercialVideo.tsx";
 import PrintMerchandise from "./pages/services/PrintMerchandise.tsx";
 import DigitalAdvertising from "./pages/services/DigitalMarketingStrategy.tsx";
+
 
 // // Whatsapp FAB
 // import WhatsAppFAB from "./components/WhatsAppFAB.tsx";
@@ -47,6 +51,9 @@ const App = () => (
         {/* ScrollToTop ensures the page starts at 0,0 on route change */}
         <ScrollToTop />
         
+        {/* WRAPPER: min-h-screen + flex-col ensures Footer stays at the very bottom */}
+        <div className="flex flex-col min-h-screen bg-white">
+
         {/* Navbar is now GLOBAL - it shows on every page */}
         <Navbar />
 
@@ -55,6 +62,9 @@ const App = () => (
           <Routes>
             
             <Route path="/" element={<Index />} />
+
+            {/* About route */}
+            <Route path="/about" element={<AboutPage />} />
             
             {/* Service pages */}
             <Route path="/services/branding-graphic-design" element={<BrandingGraphicDesign />} />
@@ -63,6 +73,7 @@ const App = () => (
             <Route path="/services/motion-graphics-animation" element={<MotionAnimation />} />
             <Route path="/services/cinematic-post-production" element={<CinematicPost />} />
             <Route path="/services/commercial-video-editing" element={<CommercialVideo />} />
+
 
             {/* Portfolio routes */}
             {/* <Route path="/portfolio" element={<Portfolio />} /> */}
@@ -85,7 +96,7 @@ const App = () => (
         
         {/* Footer is now GLOBAL - it shows on every page */}
         <Footer />
-        
+        </div>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
