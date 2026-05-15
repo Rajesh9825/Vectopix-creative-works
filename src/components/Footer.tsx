@@ -11,7 +11,6 @@ const Footer = () => {
   const location = useLocation();
 
   const scrollTo = (href: string) => {
-    // If navigating to a real route (like Blog)
     if (href.startsWith('/')) {
       navigate(href);
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -39,13 +38,14 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-brand-dark pt-24 pb-12 overflow-hidden border-t border-white/5">
+    // Added mt-0 and block to ensure it sticks perfectly to the section above
+    <footer className="relative block w-full bg-brand-dark pt-24 pb-12 border-t border-white/5 mt-0">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-20">
           
           {/* 1. BRAND PILLAR */}
           <div className="lg:col-span-4 space-y-8">
-            <button onClick={() => scrollTo("#home")}>
+            <button onClick={() => scrollTo("#home")} className="block">
               <img src={logoFooter} alt="VectoPix" className="h-14 w-auto grayscale brightness-200" />
             </button>
             <p className="text-xl font-medium text-white/50 leading-relaxed max-w-xs">
@@ -71,7 +71,6 @@ const Footer = () => {
             <div>
               <h4 className="text-xs font-black uppercase tracking-[0.2em] text-brand-yellow mb-8">Studio</h4>
               <ul className="space-y-4">
-                {/* Added Blog to the map array below */}
                 {["Home", "About", "Services", "Portfolio", "Blog", "Contact"].map((l) => (
                   <li key={l}>
                     <button
@@ -89,18 +88,23 @@ const Footer = () => {
               <h4 className="text-xs font-black uppercase tracking-[0.2em] text-brand-yellow mb-8">Niches</h4>
               <ul className="space-y-4 text-white/40 font-bold text-sm">
                 <li onClick={() => navigate('/services/branding-graphic-design')} className="hover:text-white transition-colors cursor-pointer uppercase">Branding</li>
-                <li onClick={() => navigate('/services/motion-graphics-animation')} className="hover:text-white transition-colors cursor-pointer uppercase">Motion</li>
-                <li onClick={() => navigate('/services/print-merchandise-production')} className="hover:text-white transition-colors cursor-pointer uppercase">Print</li>
-                <li onClick={() => navigate('/services/digital-marketing-strategy')} className="hover:text-white transition-colors cursor-pointer uppercase">Ad Design</li>
+                <li onClick={() => navigate('/services/commercial-video-editing')} className="hover:text-white transition-colors cursor-pointer uppercase">Video Editing</li>
+                <li onClick={() => navigate('/services/motion-graphics-animation')} className="hover:text-white transition-colors cursor-pointer uppercase">Motion Graphics</li>
+                <li onClick={() => navigate('/services/digital-marketing-strategy')} className="hover:text-white transition-colors cursor-pointer uppercase">Digital Marketing</li>
+                <li onClick={() => navigate('/services/cinematic-post-production')} className="hover:text-white transition-colors cursor-pointer uppercase">Film Post Production</li>
+                <li onClick={() => navigate('/services/print-merchandise-production')} className="hover:text-white transition-colors cursor-pointer uppercase">Marchandise & Printing</li>
+                
               </ul>
             </div>
           </div>
 
           {/* 3. CONTACT CARD */}
           <div className="lg:col-span-4 bg-white/[0.03] border border-white/10 rounded-[2.5rem] p-10 relative overflow-hidden group">
+            {/* Background Accent */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-brand-yellow/10 blur-3xl rounded-full -mr-16 -mt-16 group-hover:bg-brand-yellow/20 transition-all" />
+            
             <h4 className="text-xs font-black uppercase tracking-[0.2em] text-white mb-8">Start a project</h4>
-            <div className="space-y-6">
+            <div className="space-y-6 relative z-10">
               <a href="mailto:vectopixcreatives@gmail.com" className="flex items-center gap-4 text-white/60 hover:text-brand-yellow transition-colors group/link">
                 <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover/link:bg-brand-yellow/20">
                   <Mail size={18} />
