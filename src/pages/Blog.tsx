@@ -2,9 +2,24 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Clock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { blogPosts } from "../data/blogData";
+import { useState, useRef, useEffect } from "react";
+
+
 
 const Blog = () => {
   const navigate = useNavigate();
+
+  //  Blog Page - Stories & Solutions
+//  This page serves as the hub for all our blog content, showcasing tactical insights, design philosophies, and brand roadmaps. Each article is crafted to provide value to our audience, helping them navigate the complexities of modern business with actionable advice and inspiring stories.      
+
+useEffect(() => {
+  document.title = "Stories & Solutions | VectoPix Creative Works";
+  
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) {
+    metaDesc.setAttribute("content", "Explore tactical insights, design philosophies, and brand roadmaps from VectoPix. Dive deep into stories and solutions constructed to accelerate modern businesses.");
+  }
+}, []);
 
   return (
     <div className="pt-32 pb-24 bg-[#FCFCFC] min-h-screen">
