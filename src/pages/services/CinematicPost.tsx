@@ -8,7 +8,7 @@ const POSTER_DATA = {
   // Background: Atmospheric loop (Muted)
   bgVideoId: "XW1RkKiRnsg", 
   // Center: Your main showreel (Autoplay + Landscape)
-  centerVideoId: "dQw4w9WgXcQ", 
+  centerVideoId: "F5aKkOZtutg", 
   inner: [
     "/images/movie1.jpg", "/images/movie2.jpg", "/images/movie3.jpg",
     "/images/movie4.jpg", "/images/movie5.jpg", "/images/movie6.jpg",
