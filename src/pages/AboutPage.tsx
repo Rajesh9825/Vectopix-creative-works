@@ -8,6 +8,19 @@ import {
 } from "lucide-react";
 import emailjs from "@emailjs/browser";
 
+// About Page - Our Story & Philosophy
+// This page serves as the narrative core of our brand, sharing the story behind Vectopix Creative Works, our design philosophy, and the values that drive us. It provides visitors with a deeper understanding of who we are, what we stand for, and how we approach creativity and client partnerships. Through compelling storytelling and engaging visuals, we aim to connect with our audience on a more personal level, building trust and inspiring potential clients to embark on their creative journey with us. 
+useEffect(() => {
+  document.title = "About Us | VectoPix Creative Works";
+  
+  // Dynamically configure description tag for indexation crawlers
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) {
+    metaDesc.setAttribute("content", "Discover the story behind Vectopix Creative Works. Built on precision vectors and vivid pixels, our Pune studio crafts human-centric brand strategies.");
+  }
+}, []);
+
+
 // --- COUNTER COMPONENT FOR STATS ---
 const AnimatedNumber = ({ value }: { value: string }) => {
   const ref = useRef(null);
@@ -32,6 +45,9 @@ const AnimatedNumber = ({ value }: { value: string }) => {
     </span>
   );
 };
+
+
+
 
 // --- CONSULTATION MODAL COMPONENT ---
 const ConsultationModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
