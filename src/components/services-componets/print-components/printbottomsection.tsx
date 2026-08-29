@@ -169,7 +169,7 @@ const PrintBottomSections = ({ onQuoteClick }: PrintBottomSectionsProps) => {
       {/* --- SECTION 3: IMMERSIVE BG CTA --- */}
       <section 
         className="w-full relative py-24 md:py-32 bg-brand-dark text-white bg-cover bg-[78%] sm:bg-center lg:bg-[right_center] border-t border-white/5"
-        style={{ backgroundImage: "url('/src/assets/printbottomimage.png')" }}
+        style={{ backgroundImage: "url('https://res.cloudinary.com/dep3ixqlu/image/upload/v1787671060/printbottomimage_bhv9yg.png')" }}
       >
         <div className="absolute inset-0 bg-brand-dark/60 lg:bg-brand-dark/20 pointer-events-none z-0" />
         
@@ -178,14 +178,17 @@ const PrintBottomSections = ({ onQuoteClick }: PrintBottomSectionsProps) => {
             
             <div className="lg:col-span-7 text-left space-y-6 md:space-y-8 max-w-md sm:max-w-none mx-auto lg:mx-0">
               <div className="space-y-3">
-                <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-brand-yellow font-bold block">OUR WORK</span>
+                {/* <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-brand-yellow font-bold block">OUR WORK</span> */}
                 <h2 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tighter leading-[1.0] sm:leading-[0.95] text-white">
                   Ready to <span className="text-brand-yellow">Print Something Great?</span>
                 </h2>
               </div>
               
               <p className="text-sm md:text-base text-white/70 font-medium leading-relaxed">
-                Let's create high-quality prints and merchandise that make your brand unforgettable. Whether you have a clear brief or just a rough idea — we're here to make it happen.
+                Let's create high-quality prints and merchandise that 
+                  <br /> make your brand unforgettable.   
+                  <br />Whether you have a clear brief or just a rough 
+                  <br />idea — we're here to make it happen.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-3.5 w-full sm:w-auto pt-2">

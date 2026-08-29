@@ -51,6 +51,11 @@ const PrintFAQ = () => {
 
   const highIntentSearches = [
     "which is the best printing service in pune",
+    "Printing and merchandise service near me",
+    "Best printing and branding service providers in pune",
+    "Best printing and merchandise service providers in Dhanakwadi, Baner, Wakad, Kothrud, Kharadi",
+    "custom corporate merchandise suppliers in pune",
+    "which is the best printing and branding company - Vectopix",
     "top rated customized corporate merchandise providers",
     "which is the most affordable printing and branding company",
     "which is the fastest print service with quick door delivery near me",
