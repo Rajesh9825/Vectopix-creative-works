@@ -25,21 +25,33 @@ const BrandingGraphicDesign = () => {
     <>
       {/* 🚀 HIGH-AUTHORITY LOGO & BRANDING TARGETED SEO META BLOCK */}
       <Helmet>
-        <title>Vectopix Creative Works | Best Logo Design & Branding Agency in Pune</title>
-        <meta 
-          name="description" 
-          content="Looking for a premier graphic designer or corporate logo design agency in Pune? Vectopix Creative Works provides custom brand identity kits, social media graphics, and commercial package design across Baner, Wakad, and Kothrud." 
-        />
-        <meta 
-          name="keywords" 
-          content="best logo designer in pune, top branding agency pune, commercial graphic design studio, corporate brand identity kits, package design company near me, affordable graphic designers" 
-        />
-        
-        {/* Open Graph Tags for Premium Link Sharing Previews */}
-        <meta property="og:title" content="Vectopix Creative Works | Premium Brand Identity & Logo Design Pune" />
-        <meta property="og:description" content="Transforming corporate footprints with strategic graphic layouts, minimalist brand assets, and custom logo packaging." />
-        <meta property="og:type" content="website" />
-      </Helmet>
+      {/* Core Title & Meta */}
+      <title>Vectopix Creative Works | Best Logo Design & Branding Agency in Pune</title>
+      <meta 
+        name="description" 
+        content="Looking for a premier graphic designer or corporate logo design agency in Pune? Vectopix Creative Works provides custom brand identity kits, social media graphics, and commercial package design across katraj,Swarget,Kondwa, Hadapsar,Baner, Wakad, and Kothrud." 
+      />
+      <meta 
+        name="keywords" 
+        content="best logo designer in pune, top branding agency pune, commercial graphic design studio, corporate brand identity kits, package design company near me, affordable graphic designers" 
+      />
+      
+      {/* Canonical Link */}
+      <link rel="canonical" href="https://vectopix.in/services/branding-graphic-design" />
+
+      {/* Open Graph Tags */}
+      <meta property="og:title" content="Vectopix Creative Works | Premium Brand Identity & Logo Design Pune" />
+      <meta property="og:description" content="Transforming corporate footprints with strategic graphic layouts, minimalist brand assets, and custom logo packaging." />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content="https://vectopix.in/services/branding-graphic-design" />
+      <meta property="og:image" content="https://vectopix.in/logo.png" />
+
+      {/* Twitter Cards */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Vectopix Creative Works | Premium Brand Identity & Logo Design Pune" />
+      <meta name="twitter:description" content="Transforming corporate footprints with strategic graphic layouts, minimalist brand assets, and custom logo packaging." />
+      <meta name="twitter:image" content="https://vectopix.in/logo.png" />
+    </Helmet>
 
       {/* --- BRANDING SERVICE PAGE MAIN ARCHITECTURE --- */}
       <div className="min-h-screen bg-background overflow-x-hidden">
